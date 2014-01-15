@@ -1,0 +1,203 @@
+.gmcq-component {
+
+    .gmcq-item {
+        background-color:@item-color;
+        position: relative;
+    }
+
+    .gmcq-item label {            
+        color:@item-text-color;
+        display:block;
+        border:1px solid #b9b9b9;
+        margin-bottom: 2px;
+        position: relative;
+        z-index: 1;
+        background-color: @item-color;
+        overflow:hidden;
+        
+        &.selected {            
+            color:@item-text-selected-color;
+            background-color:@item-selected-color;
+        }
+
+        
+    }
+
+    .gmcq-item-inner {
+        padding:14px;
+        margin-left: 38px;
+        padding-top:19px;
+    }
+
+    .gmcq-item input {
+        position:absolute;
+        top:14px;
+        left:14px;
+    }
+
+    .gmcq-correct-icon {
+        color: #0FB300;
+        display: none;
+    }
+
+    .gmcq-incorrect-icon {
+        color: #FF4A4A;
+        display: none;
+    }
+
+    .gmcq-item-state {
+        background: none;
+        position: absolute;
+        left: 10px;
+        width: @icon-size;
+        height: @icon-size;
+        top: 50%;
+        margin-top: -(@icon-size/2);
+        z-index: 0;
+    }
+
+    .button {
+        outline: none;
+        text-decoration: none;
+        padding: @button-padding;
+        color: @button-text-color;
+        background-color: @button-color;
+        display: none;
+
+        &.submit {
+            display: inline-block;
+        }
+    }
+
+    .gmcq-widget {
+
+        &.submitted {
+            .button.submit {
+                display: none;
+            }
+            .button.reset {
+                display: inline-block;
+            }
+        }
+
+        &.user {
+            .button.model {
+                display: inline-block;
+            }
+            .gmcq-item-icon {
+                display: none;
+            }
+            .incorrect {
+                .selected .gmcq-incorrect-icon {
+                    display: block;
+                }
+            }
+            .correct {
+                .selected .gmcq-correct-icon {
+                    display: block;
+                }
+            }
+        }
+
+        &.model {
+            .button.user {
+                display: inline-block;
+            }
+            .gmcq-item-icon {
+                display: none;
+            }
+            .selected .gmcq-correct-icon {
+                display: block;
+            }
+        }
+
+        &.disabled {
+            .button.reset {
+                display: none;
+            }
+            .gmcq-item label.selected {
+                background-color:@item-selected-color;
+            }
+
+            .gmcq-item.correct .selected .state {
+                color:#5abd5e;
+            }
+
+            .gmcq-item.incorrect .selected .state {
+                color:#db214f;
+            }
+        }
+
+        &.correct {
+            .button {
+                visibility: hidden;
+            }
+        }
+
+        &.disabled.model {
+
+            .gmcq-item label.selected {
+                background-color:@primary-color;
+            }
+
+            .gmcq-item.correct label {
+                background-color:@secondary-color;
+            }
+
+            .gmcq-item.correct .state {
+                color:#5abd5e;
+            }
+
+            .gmcq-item.incorrect .state {
+                color:#db214f;
+            }
+        }
+    }
+}
+
+.no-touch {
+
+    .gmcq-component {
+
+        .button.submit:hover,
+        .button.reset:hover,
+        .button.user:hover,
+        .button.model:hover {
+            background-color:@button-hover-color;
+            color:@button-text-hover-color;
+        }
+
+        .gmcq-widget {
+
+            
+        }
+
+        .gmcq-item label:hover {
+            color:@item-text-hover-color;
+            background-color:@item-hover-color;
+        }
+
+        .disabled {
+
+            .gmcq-item label:hover {
+                color:@item-text-disabled-color;
+                background-color:@item-disabled-color;
+            }
+
+            .gmcq-item label.selected:hover {
+                background-color:@item-disabled-color
+            }
+        }
+
+        .disabled.model {
+
+            .gmcq-item label.selected:hover {
+                background-color:@item-disabled-color;
+            }
+
+            .gmcq-item.correct label:hover {
+                background-color:@item-disabled-color;
+            }
+        }
+    }
+}
