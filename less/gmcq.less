@@ -3,6 +3,8 @@
     .gmcq-item {
         background-color:@item-color;
         position: relative;
+        width:50%;
+        float:left;
     }
 
     .gmcq-item label {            
@@ -15,12 +17,21 @@
         background-color: @item-color;
         overflow:hidden;
         
+        .gmcq-answer-icon{
+            &:before {
+                content: "\e65e";
+            }
+        }
+
         &.selected {            
             color:@item-text-selected-color;
             background-color:@item-selected-color;
-        }
-
-        
+            .gmcq-answer-icon{
+                &:before {
+                    content: "\e65d";
+                }
+            }
+        }        
     }
 
     .gmcq-item-inner {
@@ -133,25 +144,6 @@
                 visibility: hidden;
             }
         }
-
-        &.disabled.model {
-
-            .gmcq-item label.selected {
-                background-color:@primary-color;
-            }
-
-            .gmcq-item.correct label {
-                background-color:@secondary-color;
-            }
-
-            .gmcq-item.correct .state {
-                color:#5abd5e;
-            }
-
-            .gmcq-item.incorrect .state {
-                color:#db214f;
-            }
-        }
     }
 }
 
@@ -168,35 +160,11 @@
         }
 
         .gmcq-widget {
-
-            
-        }
-
-        .gmcq-item label:hover {
-            color:@item-text-hover-color;
-            background-color:@item-hover-color;
-        }
-
-        .disabled {
-
-            .gmcq-item label:hover {
-                color:@item-text-disabled-color;
-                background-color:@item-disabled-color;
-            }
-
-            .gmcq-item label.selected:hover {
-                background-color:@item-disabled-color
-            }
-        }
-
-        .disabled.model {
-
-            .gmcq-item label.selected:hover {
-                background-color:@item-disabled-color;
-            }
-
-            .gmcq-item.correct label:hover {
-                background-color:@item-disabled-color;
+            &:not(.disabled) {
+                .gmcq-item label:hover {
+                    color:@item-text-hover-color;
+                    background-color:@item-hover-color;
+                }
             }
         }
     }
