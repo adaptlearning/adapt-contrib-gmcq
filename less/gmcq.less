@@ -1,27 +1,55 @@
 .gmcq-component {
 
     .gmcq-item {
-        background-color:@item-color;
         position: relative;
         width:50%;
+        margin-bottom:8px;
         float:left;
+
+        &.even{
+            label{
+                margin-left:5%;
+            }
+        }
+
+        &.odd{
+            clear: both;
+        
+            label{
+                margin-right:5%;
+            }
+        }   
+
+        @media all and (max-width:760px) {
+            width:100%;
+            &.even, &.odd{
+                label{
+                    margin-left:0%;
+                    margin-right:0%;
+                }
+            }
+        }
     }
 
     .gmcq-item label {            
         color:@item-text-color;
         display:block;
         border:1px solid #b9b9b9;
-        margin-bottom: 2px;
-        position: relative;
-        z-index: 1;
+        margin-bottom:2px;
+        position:relative;
+        z-index:1;
         background-color: @item-color;
-        overflow:hidden;
-        
+        overflow: hidden;
+
+        img{
+            vertical-align: bottom;
+        }
+
         .gmcq-answer-icon{
             &:before {
                 content: "\e65e";
             }
-        }
+        } 
 
         &.selected {            
             color:@item-text-selected-color;
@@ -36,24 +64,18 @@
 
     .gmcq-item-inner {
         padding:14px;
-        margin-left: 38px;
+        margin-left:38px;
         padding-top:19px;
     }
 
     .gmcq-item input {
         position:absolute;
         top:14px;
-        left:14px;
+        left:25px;
     }
 
-    .gmcq-correct-icon {
-        color: #0FB300;
-        display: none;
-    }
-
-    .gmcq-incorrect-icon {
-        color: #FF4A4A;
-        display: none;
+    .gmcq-item-checkbox{
+        position: relative;
     }
 
     .gmcq-item-state {
@@ -67,6 +89,16 @@
         z-index: 0;
     }
 
+    .gmcq-correct-icon {
+        color: @icon-correct-color;
+        display: none;
+    }
+
+    .gmcq-incorrect-icon {
+        color: @icon-incorrect-color;
+        display: none;
+    }
+
     .button {
         outline: none;
         text-decoration: none;
@@ -77,6 +109,8 @@
 
         &.submit {
             display: inline-block;
+            clear: both;
+            float:left; 
         }
     }
 
@@ -131,11 +165,11 @@
             }
 
             .gmcq-item.correct .selected .state {
-                color:#5abd5e;
+                color:@icon-correct-color;
             }
 
             .gmcq-item.incorrect .selected .state {
-                color:#db214f;
+                color:@icon-incorrect-color;
             }
         }
 

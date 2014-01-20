@@ -2,6 +2,10 @@ define(function(require) {
     var Mcq = require('components/adapt-contrib-mcq/js/adapt-contrib-mcq');
     var Adapt = require('coreJS/adapt');
 
+    Handlebars.registerHelper('odd',function (index) {
+        return (index +1) % 2 === 0  ? 'even' : 'odd';
+    });
+
     var Gmcq = Mcq.extend({
 
         events: {
@@ -18,7 +22,7 @@ define(function(require) {
             return !this.$('.gmcq-widget, .button.reset').hasClass('disabled');
         },
 
-        resetItems: function() { 
+        resetItems: function() {
             this.$('.gmcq-item label').removeClass('selected');
             this.$('input').prop('checked', false);
             this.deselectAllItems();
