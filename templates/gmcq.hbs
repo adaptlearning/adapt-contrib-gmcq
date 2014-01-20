@@ -18,7 +18,9 @@
         <div class="gmcq-item item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
              
             <label for="{{../_id}}-{{@index}}" class="{{#if selected}}selected{{/if}}">
-                <img src="{{image}}" alt="{{alt}}"/>
+            
+                    <img src="{{graphic.src}}" alt="{{graphic.alt}}" title="{{graphic.title}}" data-large="{{graphic.large}}" data-medium="{{graphic.medium}}" data-small="{{graphic.small}}"/>
+            
                 <div class="gmcq-item-checkbox">
                     <div class="gmcq-item-state">
                         <div class="gmcq-item-icon gmcq-answer-icon icon"></div>
