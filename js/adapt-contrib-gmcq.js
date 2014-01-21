@@ -1,7 +1,7 @@
 define(function(require) {
     var Mcq = require('components/adapt-contrib-mcq/js/adapt-contrib-mcq');
     var Adapt = require('coreJS/adapt');
-
+    
     var Gmcq = Mcq.extend({
 
         events: {
@@ -11,14 +11,15 @@ define(function(require) {
             "click .gmcq-widget .button.submit": "onSubmitClicked",
             "click .gmcq-widget .button.reset": "onResetClicked",
             "click .gmcq-widget .button.model": "onModelAnswerClicked",
-            "click .gmcq-widget .button.user": "onUserAnswerClicked"
+            "click .gmcq-widget .button.user": "onUserAnswerClicked",
+            'inview':'inview'
         },
 
         canReset: function() {
             return !this.$('.gmcq-widget, .button.reset').hasClass('disabled');
         },
 
-        resetItems: function() { 
+        resetItems: function() {
             this.$('.gmcq-item label').removeClass('selected');
             this.$('input').prop('checked', false);
             this.deselectAllItems();
@@ -31,6 +32,31 @@ define(function(require) {
             if(this.model.get('_isEnabled') && !this.model.get('_isSubmitted')){
                 this.toggleItemSelected(selectedItemObject, event);
             }
+        },
+        preRender: function() {
+            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+        },
+
+        postRender: function() {
+            this.resizeImage(Adapt.device.screenSize);
+        },
+
+        inview: function(event, visible) {
+            if (visible) {
+                this.setCompletionStatus();
+            }
+        },
+        
+        resizeImage: function(width) {
+
+            this.$('label').each(function( index ) {
+              var src = $(this).find('img').attr('data-' + width);
+              $(this).find('img').attr('src', src);
+            });       
+
+            this.$('label').imageready(_.bind(function() {
+                this.setReadyStatus();
+            }, this));
         }
     });
     

@@ -1,6 +1,6 @@
 {
-    "_id":"c-105",
-    "_parentId":"b-55",
+    "_id":"c-125",
+    "_parentId":"b-60",
     "_type":"component",
     "_component":"gmcq",
     "_classes":"",
@@ -13,16 +13,26 @@
     "body": "Which of the following options would you consider to be correct?",
     "items": [
         {
-            "image": "assets/GMC_1.png",
-            "alt": "Alt text for option 1",
             "text": "This is option 1.",
-            "shouldBeSelected":true
+            "shouldBeSelected":true,
+            "graphic": {
+                "alt": "Alt text for option 1",
+                "title": "title text",
+                "large": "http://placehold.it/480x300/",
+                "medium": "http://placehold.it/480x250/",
+                "small": "http://placehold.it/480x350/"
+            }
         },
         {
-            "image": "assets/GMC_2.png",
-            "alt": "Alt text for option 2",
             "text": "This is option 2.",
-            "shouldBeSelected":false
+            "shouldBeSelected":false,
+            "graphic": {
+                "alt": "Alt text for option 2",
+                "title": "title text",
+                "large": "http://placehold.it/480x300/3eb4e4/fff",
+                "medium": "http://placehold.it/480x250/3eb4e4/fff",
+                "small": "http://placehold.it/480x350/3eb4e4/fff"
+            }
         }
     ],
     "feedback":{

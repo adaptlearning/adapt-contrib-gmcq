@@ -15,42 +15,46 @@
     {{/if}}
     <div class="gmcq-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each items}}
-        <div class="gmcq-item item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}}">
-            
+        <div class="gmcq-item item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
+             
             <label for="{{../_id}}-{{@index}}" class="{{#if selected}}selected{{/if}}">
-                <img src="{{image}}" alt="{{alt}}"/>
-                <div class="gmcq-item-state">
-                    <div class="gmcq-item-icon gmcq-answer-icon icon"></div>
-                    <div class="gmcq-item-icon gmcq-correct-icon icon icon-tick"></div>
-                    <div class="gmcq-item-icon gmcq-incorrect-icon icon icon-cross"></div>
+            
+                    <img src="{{graphic.src}}" alt="{{graphic.alt}}" title="{{graphic.title}}" data-large="{{graphic.large}}" data-medium="{{graphic.medium}}" data-small="{{graphic.small}}"/>
+            
+                <div class="gmcq-item-checkbox">
+                    <div class="gmcq-item-state">
+                        <div class="gmcq-item-icon gmcq-answer-icon icon"></div>
+                        <div class="gmcq-item-icon gmcq-correct-icon icon icon-tick"></div>
+                        <div class="gmcq-item-icon gmcq-incorrect-icon icon icon-cross"></div>
+                    </div>
+                    <h5 class="gmcq-item-inner">
+                        {{{text}}}
+                    </h5>
                 </div>
-                <h5 class="gmcq-item-inner">
-                    {{{text}}}
-                </h5>
             </label>
             <input type="checkbox" id="{{../_id}}-{{@index}}"/>
         </div>
         {{/each}}
         <a href="#" class="button submit">
-            <h6>  
+            <span>  
                 {{{buttons.submit}}} 
-            </h6>
+            </span>
         </a>
         <a href="#" class="button reset">
-            <h6>
+            <span>
                 {{{buttons.reset}}} 
-            </h6>
+            </span>
         </a> 
         <a href="#" class="button model">
-            <h6> 
+            <span> 
                 {{{buttons.showCorrectAnswer}}} 
-            </h6>
+            </span>
         </a>
 
         <a href="#" class="button user">
-            <h6>
+            <span>
                 {{{buttons.hideCorrectAnswer}}} 
-            </h6>
+            </span>
         </a>
     </div>
 </div>
