@@ -39,13 +39,7 @@ define(function(require) {
         postRender: function() {
             this.resizeImage(Adapt.device.screenSize);
         },
-
-        inview: function(event, visible) {
-            if (visible) {
-                this.setCompletionStatus();
-            }
-        },
-        
+                
         resizeImage: function(width) {
 
             this.$('label').each(function( index ) {
