@@ -11,8 +11,7 @@ define(function(require) {
             "click .gmcq-widget .button.submit": "onSubmitClicked",
             "click .gmcq-widget .button.reset": "onResetClicked",
             "click .gmcq-widget .button.model": "onModelAnswerClicked",
-            "click .gmcq-widget .button.user": "onUserAnswerClicked",
-            'inview':'inview'
+            "click .gmcq-widget .button.user": "onUserAnswerClicked"
         },
 
         canReset: function() {
@@ -40,13 +39,7 @@ define(function(require) {
         postRender: function() {
             this.resizeImage(Adapt.device.screenSize);
         },
-
-        inview: function(event, visible) {
-            if (visible) {
-                this.setCompletionStatus();
-            }
-        },
-        
+                
         resizeImage: function(width) {
 
             this.$('label').each(function( index ) {
