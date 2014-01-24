@@ -32,19 +32,23 @@ define(function(require) {
                 this.toggleItemSelected(selectedItemObject, event);
             }
         },
+
         preRender: function() {
+            Mcq.prototype.preRender.apply(this);
+
             this.listenTo(Adapt, 'device:changed', this.resizeImage);
         },
 
         postRender: function() {
+            Mcq.prototype.postRender.apply(this);
+            
             this.resizeImage(Adapt.device.screenSize);
         },
                 
         resizeImage: function(width) {
-
             this.$('label').each(function( index ) {
-              var src = $(this).find('img').attr('data-' + width);
-              $(this).find('img').attr('src', src);
+                var src = $(this).find('img').attr('data-' + width);
+                $(this).find('img').attr('src', src);
             });       
 
             this.$('label').imageready(_.bind(function() {
