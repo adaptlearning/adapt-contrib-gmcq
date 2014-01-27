@@ -4,14 +4,24 @@ define(function(require) {
     
     var Gmcq = Mcq.extend({
 
-        events: {
+        events: function() {
+            var events = {
             'focus .gmcq-item input':'onItemFocus',
             'blur .gmcq-item input':'onItemBlur',
             'change .gmcq-item input':'onItemSelected',
             "click .gmcq-widget .button.submit": "onSubmitClicked",
             "click .gmcq-widget .button.reset": "onResetClicked",
             "click .gmcq-widget .button.model": "onModelAnswerClicked",
-            "click .gmcq-widget .button.user": "onUserAnswerClicked"
+            "click .gmcq-widget .button.user": "onUserAnswerClicked",
+            }
+            if ($('html').hasClass('ie8')) {
+                var ie8Events = {
+                    'click label img':'forceChangeEvent'
+                }
+                events = _.extend(events, ie8Events);
+            }
+            return events;
+            
         },
 
         canReset: function() {
@@ -50,6 +60,9 @@ define(function(require) {
             this.$('label').imageready(_.bind(function() {
                 this.setReadyStatus();
             }, this));
+        },
+        forceChangeEvent: function(event) {
+            $("#" + $(event.currentTarget).closest("label").attr("for")).change();
         }
     });
     
