@@ -5,7 +5,7 @@
   "authors": [
     "Daryl Hedley <darylhedley@hotmail.com>"
   ],
-  "description": "Please enter a description about your component here. This is what will get shown when registered with the Adapt registry so make it good",
+  "description": "A question component that allows the learner to select one or more images in response to a question stem",
   "main": "/js/adapt-contrib-gmcq.js",
   "keywords": [
     "adapt-plugin",
