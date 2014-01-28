@@ -7,7 +7,7 @@
     "_layout":"full",
     "_attempts":1,
     "_questionWeight":1,
-    "_random":false,
+    "_isRandom":false,
     "_selectable":1,
     "title": "GMCQ",
     "body": "Which of the following options would you consider to be correct?",
@@ -41,9 +41,9 @@
         "incorrect":"Unfortunately this is the incorrect feedback."
     },
     "buttons":{
-        "submit":"SUBMIT",
-        "reset":"RESET",
-        "showCorrectAnswer":"MODEL ANSWER",
-        "hideCorrectAnswer":"YOUR ANSWER"
+        "submit":"Submit",
+        "reset":"Reset",
+        "showCorrectAnswer":"Model Answer",
+        "hideCorrectAnswer":"Your Answer"
     }
 }
