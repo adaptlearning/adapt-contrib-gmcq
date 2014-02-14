@@ -1,18 +1,5 @@
 <div class="gmcq-inner component-inner">
-    {{#if title}}
-    <div class="gmcq-title component-title">
-        <h4 class="gmcq-title-inner component-title-inner">
-            {{{title}}}
-        </h4>
-    </div>
-    {{/if}}
-    {{#if body}}
-    <div class="gmcq-body component-body">
-        <div class="gmcq-body-inner component-body-inner">
-            {{{body}}}
-        </div>
-    </div>
-    {{/if}}
+    {{> component this}}
     <div class="gmcq-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each items}}
         <div class="gmcq-item item {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
