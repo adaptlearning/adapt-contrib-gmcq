@@ -7,7 +7,7 @@
   ],
   "description": "A question component that allows the learner to select one or more images in response to a question stem",
   "main": "/js/adapt-contrib-gmcq.js",
-  "displayName" : "Graphical multiple choice question",
+  "displayName" : "Graphical Multiple Choice Question",
   "component" : "gmcq",
   "keywords": [
     "adapt-plugin",
