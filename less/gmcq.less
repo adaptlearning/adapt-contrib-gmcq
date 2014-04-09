@@ -34,7 +34,7 @@
     .gmcq-item label {            
         color:@item-text-color;
         display:block;
-        border:1px solid #b9b9b9;
+        border:@item-border;
         margin-bottom:2px;
         position:relative;
         z-index:1;
@@ -55,6 +55,7 @@
         &.selected {            
             color:@item-text-selected-color;
             background-color:@item-selected-color;
+            border-color:@item-border-selected-color;
             .gmcq-answer-icon{
                 &:before {
                     content: "\e65d";
@@ -199,6 +200,7 @@
                 .gmcq-item label:hover {
                     color:@item-text-hover-color;
                     background-color:@item-hover-color;
+                    border-color:@item-border-hover-color;
                 }
             }
         }
