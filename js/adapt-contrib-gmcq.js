@@ -28,6 +28,18 @@ define(function(require) {
             return !this.$('.gmcq-widget, .button.reset').hasClass('disabled');
         },
 
+        onCannotSubmit: function() {
+            this.showValidationError();
+        },
+
+        showValidationError: function() {
+            this.$(".gmcq-item > label").addClass("gmcq-validation-error");
+        },
+
+        clearValidationError: function() {
+            this.$(".gmcq-item > label").removeClass("gmcq-validation-error");
+        },
+
         resetItems: function() {
             this.$('.gmcq-item label').removeClass('selected');
             this.$('input').prop('checked', false);
@@ -41,6 +53,7 @@ define(function(require) {
             if(this.model.get('_isEnabled') && !this.model.get('_isSubmitted')){
                 this.toggleItemSelected(selectedItemObject, event);
             }
+            this.clearValidationError();
         },
 
         preRender: function() {
