@@ -11,11 +11,11 @@
     "_selectable":1,
     "title": "GMCQ",
     "body": "Which of the following options would you consider to be correct?",
-    "items": [
+    "_items": [
         {
             "text": "This is option 1.",
-            "shouldBeSelected":true,
-            "graphic": {
+            "_shouldBeSelected":true,
+            "_graphic": {
                 "alt": "Alt text for option 1",
                 "title": "title text",
                 "large": "http://placehold.it/480x300/",
@@ -25,8 +25,8 @@
         },
         {
             "text": "This is option 2.",
-            "shouldBeSelected":false,
-            "graphic": {
+            "_shouldBeSelected":false,
+            "_graphic": {
                 "alt": "Alt text for option 2",
                 "title": "title text",
                 "large": "http://placehold.it/480x300/3eb4e4/fff",
@@ -35,15 +35,15 @@
             }
         }
     ],
-    "feedback":{
+    "_feedback":{
         "correct":"Congratulations, this is the correct feedback.",
         "partly":"This is the partly correct feedback.",
         "incorrect":"Unfortunately this is the incorrect feedback."
     },
-    "buttons":{
-        "submit":"Submit",
-        "reset":"Reset",
-        "showCorrectAnswer":"Model Answer",
-        "hideCorrectAnswer":"Your Answer"
+    "_buttons":{
+        "submit":"",
+        "reset":"",
+        "showCorrectAnswer":"",
+        "hideCorrectAnswer":""
     }
 }

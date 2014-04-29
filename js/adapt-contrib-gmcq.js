@@ -6,13 +6,13 @@ define(function(require) {
 
         events: function() {
             var events = {
-            'focus .gmcq-item input':'onItemFocus',
-            'blur .gmcq-item input':'onItemBlur',
-            'change .gmcq-item input':'onItemSelected',
-            "click .gmcq-widget .button.submit": "onSubmitClicked",
-            "click .gmcq-widget .button.reset": "onResetClicked",
-            "click .gmcq-widget .button.model": "onModelAnswerClicked",
-            "click .gmcq-widget .button.user": "onUserAnswerClicked",
+                'focus .gmcq-item input':'onItemFocus',
+                'blur .gmcq-item input':'onItemBlur',
+                'change .gmcq-item input':'onItemSelected',
+                "click .gmcq-widget .button.submit": "onSubmitClicked",
+                "click .gmcq-widget .button.reset": "onResetClicked",
+                "click .gmcq-widget .button.model": "onModelAnswerClicked",
+                "click .gmcq-widget .button.user": "onUserAnswerClicked"
             }
             if ($('html').hasClass('ie8')) {
                 var ie8Events = {
@@ -36,7 +36,7 @@ define(function(require) {
         },
 
         onItemSelected: function(event) {
-            var selectedItemObject = this.model.get('items')[$(event.currentTarget).parent('.gmcq-item').index()];
+            var selectedItemObject = this.model.get('_items')[$(event.currentTarget).parent('.gmcq-item').index()];
             
             if(this.model.get('_isEnabled') && !this.model.get('_isSubmitted')){
                 this.toggleItemSelected(selectedItemObject, event);
