@@ -1,0 +1,114 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "properties":{
+    "_attempts": {
+      "type":"number",
+      "required":true,
+      "default":1
+    },
+    "_isRandom": {
+      "type":"boolean",
+      "required":true
+    },
+    "_questionWeight": {
+      "type":"number",
+      "required":false
+    },
+    "_selectable": {
+      "type":"number",
+      "required":true
+    },
+    "buttons": {
+      "type":"object",
+      "required":false,
+      "properties":{
+        "hideCorrectAnswer": {
+          "type":"string",
+          "required":false,
+          "default":"Your Answer"
+        },
+        "reset": {
+          "type":"string",
+          "required":false,
+          "default":"Reset"
+        },
+        "showCorrectAnswer": {
+          "type":"string",
+          "required":false,
+          "default":"Model Answer"
+        },
+        "submit": {
+          "type":"string",
+          "required":false,
+          "default":"Submit"
+        }
+      }
+    },
+    "feedback": {
+      "type":"object",
+      "required":false,
+      "properties":{
+        "correct": {
+          "type":"string",
+          "required":false
+        },
+        "incorrect": {
+          "type":"string",
+          "required":false
+        },
+        "partly": {
+          "type":"string",
+          "required":false
+        }
+      }
+    },
+    "items": {
+      "type":"array",
+      "required":true,
+      "items":
+        {
+          "type":"object",
+          "required":true,
+          "properties":{
+            "graphic": {
+              "type":"object",
+              "required":true,
+              "properties":{
+                "alt": {
+                  "type":"string",
+                  "required":false
+                },
+                "large": {
+                  "type":"string",
+                  "required":true
+                },
+                "medium": {
+                  "type":"string",
+                  "required":true
+                },
+                "small": {
+                  "type":"string",
+                  "required":true
+                },
+                "title": {
+                  "type":"string",
+                  "required":true
+                }
+              }
+            },
+            "shouldBeSelected": {
+              "type":"boolean",
+              "required":true
+            },
+            "text": {
+              "type":"string",
+              "required":false
+            }
+          }
+        }
+    }
+  }
+}
