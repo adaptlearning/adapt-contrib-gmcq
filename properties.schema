@@ -21,94 +21,101 @@
       "type":"number",
       "required":true
     },
-    "buttons": {
+    "_buttons": {
       "type":"object",
-      "required":false,
       "properties":{
         "hideCorrectAnswer": {
-          "type":"string",
-          "required":false,
-          "default":"Your Answer"
+          "type":"string"
         },
         "reset": {
-          "type":"string",
-          "required":false,
-          "default":"Reset"
+          "type":"string"
         },
         "showCorrectAnswer": {
-          "type":"string",
-          "required":false,
-          "default":"Model Answer"
+          "type":"string"
         },
         "submit": {
-          "type":"string",
-          "required":false,
-          "default":"Submit"
+          "type":"string"
         }
       }
     },
-    "feedback": {
+    "_feedback": {
       "type":"object",
-      "required":false,
-      "properties":{
-        "correct": {
-          "type":"string",
-          "required":false
-        },
-        "incorrect": {
-          "type":"string",
-          "required":false
-        },
-        "partly": {
-          "type":"string",
-          "required":false
-        }
-      }
-    },
-    "items": {
-      "type":"array",
       "required":true,
-      "items":
-        {
+      "properties":{
+        "_incorrect": {
           "type":"object",
           "required":true,
           "properties":{
-            "graphic": {
-              "type":"object",
-              "required":true,
-              "properties":{
-                "alt": {
-                  "type":"string",
-                  "required":false
-                },
-                "large": {
-                  "type":"string",
-                  "required":true
-                },
-                "medium": {
-                  "type":"string",
-                  "required":true
-                },
-                "small": {
-                  "type":"string",
-                  "required":true
-                },
-                "title": {
-                  "type":"string",
-                  "required":true
-                }
-              }
+            "final": {
+              "type":"string"
             },
-            "shouldBeSelected": {
-              "type":"boolean",
-              "required":true
-            },
-            "text": {
-              "type":"string",
-              "required":false
+            "notFinal": {
+              "type":"string"
             }
           }
+        },
+        "_partlyCorrect": {
+          "type":"object",
+          "required":true,
+          "properties":{
+            "final": {
+              "type":"string",
+              "required":true
+            },
+            "notFinal": {
+              "type":"string"
+            }
+          }
+        },
+        "correct": {
+          "type":"string",
+          "required":true
         }
+      }
+    },
+    "_items": {
+      "type":"array",
+      "required":true,
+      "items": {
+        "type":"object",
+        "required":true,
+        "properties":{
+          "_graphic": {
+            "type":"object",
+            "required":true,
+            "properties":{
+              "alt": {
+                "type":"string",
+                "required":false
+              },
+              "large": {
+                "type":"string",
+                "required":true
+              },
+              "medium": {
+                "type":"string",
+                "required":true
+              },
+              "small": {
+                "type":"string",
+                "required":true
+              },
+              "title": {
+                "type":"string",
+                "required":true
+              }
+            }
+          },
+          "_shouldBeSelected": {
+            "type":"boolean",
+            "required":true
+          },
+          "text": {
+            "type":"string",
+            "required":false
+          }
+        }
+      }
     }
   }
 }
