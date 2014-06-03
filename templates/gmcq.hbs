@@ -3,7 +3,7 @@
     <div class="gmcq-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
-             
+            <input type="checkbox" id="{{../_id}}-{{@index}}"/>
             <label for="{{../_id}}-{{@index}}" class="component-item-color component-item-text-color component-item-boder {{#if selected}}selected{{/if}}">
             
                 <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" title="{{_graphic.title}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}"/>
@@ -19,7 +19,6 @@
                     </h5>
                 </div>
             </label>
-            <input type="checkbox" id="{{../_id}}-{{@index}}"/>
         </div>
         {{/each}}
         <div class="buttons">
