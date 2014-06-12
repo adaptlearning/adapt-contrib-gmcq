@@ -1,4 +1,4 @@
-<div class="gmcq-inner component-inner">
+<div class="gmcq-inner component-inner" role="region" aria-label="{{_accessibility._ariaRegions.gmcq}}">
     {{> component this}}
     <div class="gmcq-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
@@ -6,7 +6,7 @@
             <input type="checkbox" id="{{../_id}}-{{@index}}"/>
             <label for="{{../_id}}-{{@index}}" class="component-item-color component-item-text-color component-item-boder {{#if selected}}selected{{/if}}">
             
-                <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" title="{{_graphic.title}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}"/>
+                <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}"/>
             
                 <div class="gmcq-item-checkbox">
                     <div class="gmcq-item-state">
@@ -21,7 +21,7 @@
             </label>
         </div>
         {{/each}}
-        <div class="buttons">
+        <div class="buttons"  role="button">
             {{> buttons this}}
         </div>
     </div>
