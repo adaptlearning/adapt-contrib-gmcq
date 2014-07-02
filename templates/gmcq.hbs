@@ -1,6 +1,6 @@
 <div class="gmcq-inner component-inner">
     {{> component this}}
-    <div class="gmcq-widget component-widget {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+    <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted user {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}} {{#if correct}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
             <input type="checkbox" id="{{../_id}}-{{@index}}"/>
@@ -21,8 +21,8 @@
             </label>
         </div>
         {{/each}}
-        <div class="buttons">
-            {{> buttons this}}
-        </div>
+    </div>
+    <div class="buttons">
+        {{> buttons this}}
     </div>
 </div>
