@@ -7,6 +7,11 @@
   ],
   "displayName" : "Graphical Multiple Choice Question",
   "component" : "gmcq",
+  "assetFields" : [
+    "_items[]._graphic.small",
+    "_items[]._graphic.medium",
+    "_items[]._graphic.large"
+  ],
   "description": "A multiple choice question component, with images",
   "main": "/js/adapt-contrib-gmcq.js",
   "keywords": [
