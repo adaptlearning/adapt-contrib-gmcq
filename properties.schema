@@ -7,112 +7,145 @@
     "_attempts": {
       "type":"number",
       "required":true,
-      "default":1
+      "default":1,
+      "Title": "Attempts"
     },
     "_isRandom": {
       "type":"boolean",
-      "required":true
+      "required":true,
+      "title": "Random Order"
     },
     "_questionWeight": {
       "type":"number",
-      "required":false
+      "required":false,
+      "title": "Question Weight"
     },
     "_selectable": {
       "type":"number",
-      "required":true
+      "required":true,
+      "title": "Number to Select"
     },
     "_buttons": {
       "type":"object",
+      "title": "Buttons",
       "properties":{
         "hideCorrectAnswer": {
-          "type":"string"
+          "type":"string",
+          "title": "Hide Correct Answer"
         },
         "reset": {
-          "type":"string"
+          "type":"string",
+          "title": "Reset"
         },
         "showCorrectAnswer": {
-          "type":"string"
+          "type":"string",
+          "title": "Show Correct Answer"
         },
         "submit": {
-          "type":"string"
+          "type":"string",
+          "title": "Submit"
         }
       }
     },
     "_feedback": {
       "type":"object",
       "required":true,
+      "title": "Feedback",
       "properties":{
         "_incorrect": {
           "type":"object",
           "required":true,
+          "title": "Incorrect",
           "properties":{
             "final": {
-              "type":"string"
+              "type":"string",
+              "title": "Final"
             },
             "notFinal": {
-              "type":"string"
+              "type":"string",
+              "title": "Not Final"
             }
           }
         },
         "_partlyCorrect": {
           "type":"object",
           "required":true,
+          "title": "Partly Correct",
           "properties":{
             "final": {
               "type":"string",
-              "required":true
+              "required":true,
+              "title": "Final",
+              "minLength": 1
             },
             "notFinal": {
-              "type":"string"
+              "type":"string",
+              "title": "Not Final"
             }
           }
         },
         "correct": {
           "type":"string",
-          "required":true
+          "required":true,
+          "title": "Correct",
+          "minLength": 1
         }
       }
     },
     "_items": {
       "type":"array",
       "required":true,
+      "title": "Question Options",
       "items": {
         "type":"object",
         "required":true,
+        "title": "",
         "properties":{
           "_graphic": {
             "type":"object",
             "required":true,
+            "title": "Graphic",
             "properties":{
               "alt": {
                 "type":"string",
-                "required":false
+                "required":false,
+                "title": "Alt"
               },
               "large": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Large",
+                "minLength": 1
               },
               "medium": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Medium",
+                "minLength": 1
               },
               "small": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Small",
+                "minLength": 1
               },
               "title": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Title",
+                "minLength": 1
               }
             }
           },
           "_shouldBeSelected": {
             "type":"boolean",
-            "required":true
+            "required":true,
+            "title": "Correct"
           },
           "text": {
             "type":"string",
-            "required":false
+            "required":false,
+            "title": "Optional Question Text"
           }
         }
       }
