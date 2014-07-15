@@ -8,6 +8,7 @@
       "type":"number",
       "required":true,
       "default":1,
+      "minimum": 1,
       "title": "Attempts"
     },
     "_isRandom": {
@@ -23,6 +24,7 @@
     "_selectable": {
       "type":"number",
       "required":true,
+      "minimum": 0,
       "title": "Number to Select"
     },
     "_buttons": {
@@ -95,6 +97,7 @@
     "_items": {
       "type":"array",
       "required":true,
+      "minItems": 1,
       "title": "Question Options",
       "items": {
         "type":"object",
