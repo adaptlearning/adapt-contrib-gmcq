@@ -8,7 +8,7 @@
       "type":"number",
       "required":true,
       "default":1,
-      "Title": "Attempts"
+      "title": "Attempts"
     },
     "_isRandom": {
       "type":"boolean",
