@@ -20,7 +20,7 @@
     "_questionWeight": {
       "type":"number",
       "required":false,
-      "title": "Question weight
+      "title":"Question weight"
     },
     "_selectable": {
       "type":"number",
