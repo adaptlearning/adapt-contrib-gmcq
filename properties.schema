@@ -4,6 +4,10 @@
   "id": "http://jsonschema.net",
   "$ref": "http://localhost/plugins/content/component/model.schema",
   "properties":{
+     "instruction": {
+      "type":"string",
+      "title": "Instruction text"
+    },
     "_attempts": {
       "type":"number",
       "required":true,
@@ -102,7 +106,7 @@
       "required":true,
       "minItems": 1,
       "maxItems": 8,
-      "title": "Question Answers",
+      "title": "Answers",
       "items": {
         "type":"object",
         "required":true,
@@ -111,7 +115,7 @@
           "_graphic": {
             "type":"object",
             "required":true,
-            "title": "Question graphic",
+            "title": "Graphic",
             "properties":{
               "alt": {
                 "type":"string",
@@ -139,7 +143,7 @@
               "title": {
                 "type":"string",
                 "required":true,
-                "title": "Media title",
+                "title": "Graphic title",
                 "minLength": 1
               }
             }
