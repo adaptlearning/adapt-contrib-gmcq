@@ -96,7 +96,7 @@
         "correct": {
           "type":"string",
           "required":true,
-          "title": "Feedback for correct answer ",
+          "title": "Feedback for correct answer",
           "minLength": 1
         }
       }
