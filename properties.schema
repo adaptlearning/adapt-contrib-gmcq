@@ -30,6 +30,7 @@
       "type":"number",
       "required":true,
       "minimum": 1,
+      "default":1,
       "title": "Number of items to select"
     },
     "_buttons": {
@@ -110,7 +111,6 @@
       "items": {
         "type":"object",
         "required":true,
-        "title": "",
         "properties":{
           "_graphic": {
             "type":"object",
@@ -151,6 +151,7 @@
           "_shouldBeSelected": {
             "type":"boolean",
             "required":true,
+            "default":false,
             "title": "Correct answer"
           },
           "text": {
