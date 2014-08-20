@@ -4,78 +4,110 @@
   "id": "http://jsonschema.net",
   "$ref": "http://localhost/plugins/content/component/model.schema",
   "properties":{
+     "instruction": {
+      "type":"string",
+      "title": "Instruction text"
+    },
     "_attempts": {
       "type":"number",
       "required":true,
-      "default":1
+      "default":1,
+      "minimum": 1,
+      "title": "Number of attempts"
     },
     "_isRandom": {
       "type":"boolean",
-      "required":true
+      "required":true,
+      "default":false,
+      "title": "Random order"
     },
     "_questionWeight": {
       "type":"number",
-      "required":false
+      "required":false,
+      "title":"Question weight"
     },
     "_selectable": {
       "type":"number",
-      "required":true
+      "required":true,
+      "minimum": 1,
+      "default":1,
+      "title": "Number of items to select"
     },
     "_buttons": {
       "type":"object",
+      "title": "Buttons",
       "properties":{
         "hideCorrectAnswer": {
-          "type":"string"
+          "type":"string",
+          "title": "Hide correct answer button label"
         },
         "reset": {
-          "type":"string"
+          "type":"string",
+          "title": "Reset button label"
         },
         "showCorrectAnswer": {
-          "type":"string"
+          "type":"string",
+          "title": "Show correct answer button label"
         },
         "submit": {
-          "type":"string"
+          "type":"string",
+          "title": "Submit button label"
         }
       }
     },
     "_feedback": {
       "type":"object",
       "required":true,
+      "title": "Feedback text",
       "properties":{
         "_incorrect": {
           "type":"object",
           "required":true,
+          "title": "Feedback for incorrect answers",
           "properties":{
             "final": {
-              "type":"string"
+              "type":"string",
+              "required":true,
+              "minLength": 1,
+              "title": "Incorrect final answer"
             },
             "notFinal": {
-              "type":"string"
+              "type":"string",
+              "title": "Incorrect non final answer"
             }
           }
         },
         "_partlyCorrect": {
           "type":"object",
           "required":true,
+          "title": "Feedback when answer is partly correct",
           "properties":{
             "final": {
               "type":"string",
-              "required":true
+              "required":true,
+              "title": "Partially correct final answer",
+              "minLength": 1
             },
             "notFinal": {
-              "type":"string"
+              "type":"string",
+              "title": "Partially correct non final answer"
             }
           }
         },
         "correct": {
           "type":"string",
-          "required":true
+          "required":true,
+          "title": "Feedback for correct answer",
+          "minLength": 1
         }
       }
     },
     "_items": {
       "type":"array",
       "required":true,
+      "minItems": 1,
+      "maxItems": 8,
+      "title": "Answers",
       "items": {
         "type":"object",
         "required":true,
@@ -83,36 +115,49 @@
           "_graphic": {
             "type":"object",
             "required":true,
+            "title": "Graphic",
             "properties":{
               "alt": {
                 "type":"string",
-                "required":false
+                "required":false,
+                "title": "Alternative text"
               },
               "large": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Large graphic asset",
+                "minLength": 1
               },
               "medium": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Medium size graphic asset",
+                "minLength": 1
               },
               "small": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Small graphic asset",
+                "minLength": 1
               },
               "title": {
                 "type":"string",
-                "required":true
+                "required":true,
+                "title": "Graphic title",
+                "minLength": 1
               }
             }
           },
           "_shouldBeSelected": {
             "type":"boolean",
-            "required":true
+            "required":true,
+            "default":false,
+            "title": "Correct answer"
           },
           "text": {
             "type":"string",
-            "required":false
+            "required":false,
+            "title": "Answer text"
           }
         }
       }
