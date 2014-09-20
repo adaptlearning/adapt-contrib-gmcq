@@ -5,9 +5,16 @@
         width:50%;
         margin-bottom:8px;
         float:left;
+        .dir-rtl & {
+            float:right;
+        }
         &.even {
             label {
                 margin-left:5%;
+		        .dir-rtl & {
+		            margin-left:inherit;
+		            margin-right:5%;
+		        }
             }
         }
 
@@ -15,6 +22,10 @@
 
             label {
                 margin-right:5%;
+                .dir-rtl & {
+                    margin-right:inherit;
+                    margin-left:5%;
+                }
             }
         }
 
@@ -68,6 +79,10 @@
     .gmcq-item-inner {
         padding:14px;
         margin-left:38px;
+        .dir-rtl & {
+            margin-left:inherit;
+            margin-right:38px;
+        }
         padding-top:19px;
     }
 
@@ -75,6 +90,10 @@
         position:absolute;
         top:14px;
         left:25px;
+        .dir-rtl & {
+            left:inherit;
+            right:25px;
+        }
     }
 
     .gmcq-item-checkbox {
@@ -85,6 +104,10 @@
         background:none;
         position:absolute;
         left:10px;
+        .dir-rtl & {
+            left:inherit;
+            right:10px;
+        }
         width:@icon-size;
         height:@icon-size;
         top:50%;
