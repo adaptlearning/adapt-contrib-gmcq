@@ -1,41 +1,41 @@
 /*
-* adapt-contrib-gmcq
-* License - http://github.com/adaptlearning/adapt_framework/LICENSE
-* Maintainers - Daryl Hedley <darylhedley@gmail.com>
-*/
+ * adapt-contrib-gmcq
+ * License - https://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
+ * Maintainers - Daryl Hedley <darylhedley@gmail.com>, Himanshu Rajotia <himanshu.rajotia@credipoint.com>
+ */
 define(function(require) {
     var Mcq = require('components/adapt-contrib-mcq/js/adapt-contrib-mcq');
     var Adapt = require('coreJS/adapt');
-    
+
     var Gmcq = Mcq.extend({
 
         events: function() {
 
             var events = {
-                'focus .gmcq-item input':'onItemFocus',
-                'blur .gmcq-item input':'onItemBlur',
-                'change .gmcq-item input':'onItemSelected'
-            }
+                'focus .gmcq-item input': 'onItemFocus',
+                'blur .gmcq-item input': 'onItemBlur',
+                'change .gmcq-item input': 'onItemSelected'
+            };
 
             if ($('html').hasClass('ie8')) {
 
                 var ie8Events = {
-                    'click label img':'forceChangeEvent'
-                }
+                    'click label img': 'forceChangeEvent'
+                };
 
                 events = _.extend(events, ie8Events);
 
             }
 
             return events;
-            
+
         },
 
         onItemSelected: function(event) {
 
             var selectedItemObject = this.model.get('_items')[$(event.currentTarget).parent('.gmcq-item').index()];
-            
-            if(this.model.get('_isEnabled') && !this.model.get('_isSubmitted')){
+
+            if (this.model.get('_isEnabled') && !this.model.get('_isSubmitted')) {
                 this.toggleItemSelected(selectedItemObject, event);
             }
 
@@ -56,13 +56,15 @@ define(function(require) {
             }, this));
 
         },
-                
+
         resizeImage: function(width) {
 
-            this.$('label').each(function( index ) {
-                var src = $(this).find('img').attr('data-' + width);
+            var imageWidth = width === 'medium' ? 'small' : width;
+
+            this.$('label').each(function(index) {
+                var src = $(this).find('img').attr('data-' + imageWidth);
                 $(this).find('img').attr('src', src);
-            });    
+            });
 
         },
 
@@ -73,9 +75,9 @@ define(function(require) {
         }
 
     });
-    
+
     Adapt.register("gmcq", Gmcq);
 
     return Gmcq;
-    
+
 });

@@ -128,12 +128,6 @@
                 "title": "Large graphic asset",
                 "minLength": 1
               },
-              "medium": {
-                "type":"string",
-                "required":true,
-                "title": "Medium size graphic asset",
-                "minLength": 1
-              },
               "small": {
                 "type":"string",
                 "required":true,

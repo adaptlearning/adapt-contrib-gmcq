@@ -65,7 +65,7 @@ Value can be `true` or `false`. Use `true` for items that must be selected for a
 
 ####_graphic
 
-The image for this multiple choice option is defined within this element. This element should contain only one value for `alt`, `title`, `large`, `medium` and `small`.
+The image for this multiple choice option is defined within this element. This element should contain only one value for `alt`, `title`, `large` and `small`.
 
 ####alt
 
@@ -80,12 +80,6 @@ This setting is for the title attribute on the image.
 Enter a path to the image for large device width. Paths should be relative to the src folder, e.g.
 
 course/en/images/gqcq-1-large.gif
-
-####medium
-
-Enter a path to the image for medium device width. Paths should be relative to the src folder, e.g.
-
-course/en/images/gqcq-1-medium.gif
 
 ####small
 

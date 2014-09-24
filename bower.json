@@ -3,13 +3,13 @@
   "version": "0.0.2",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
   "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>"
+    "Daryl Hedley <darylhedley@hotmail.com>",
+    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
   ],
   "displayName" : "Graphical Multiple Choice Question",
   "component" : "gmcq",
   "assetFields" : [
     "_items[]._graphic.small",
-    "_items[]._graphic.medium",
     "_items[]._graphic.large"
   ],
   "description": "A multiple choice question component, with images",
