@@ -20,7 +20,6 @@
             "_graphic": {
                 "alt": "Alt text for option 1",
                 "large": "course/en/images/gqcq-1-large.gif",
-                "medium": "course/en/images/gqcq-1-medium.gif",
                 "small": "course/en/images/gqcq-1-small.gif"
             }
         },
@@ -30,7 +29,6 @@
             "_graphic": {
                 "alt": "Alt text for option 2",
                 "large": "course/en/images/gqcq-2-large.gif",
-                "medium": "course/en/images/gqcq-2-medium.gif",
                 "small": "course/en/images/gqcq-2-small.gif"
             }
         }
