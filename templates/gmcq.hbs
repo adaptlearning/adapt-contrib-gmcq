@@ -3,14 +3,14 @@
     <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
-            <input type="checkbox" id="{{../_id}}-{{@index}}"/>
+            <input type="{{#if ../_isRadio}}radio{{else}}checkbox{{/if}}" id="{{../_id}}-{{@index}}"/>
             <label for="{{../_id}}-{{@index}}" class="component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}}">
 
                 <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"/>
 
                 <div class="gmcq-item-checkbox">
                     <div class="gmcq-item-state">
-                        <div class="gmcq-item-icon gmcq-answer-icon icon"></div>
+                        <div class="gmcq-item-icon gmcq-answer-icon {{#if ../_isRadio}}radio{{else}}checkbox{{/if}} icon"></div>
                         <div class="gmcq-item-icon gmcq-correct-icon icon icon-tick"></div>
                         <div class="gmcq-item-icon gmcq-incorrect-icon icon icon-cross"></div>
                     </div>

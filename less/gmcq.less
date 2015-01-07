@@ -57,8 +57,21 @@
 
         .gmcq-answer-icon {
             color:@item-text-color;
-            &:before {
-                content:"\e65e";
+            &.radio {
+                &:before {
+                    content: "\e65e";
+                }
+            }
+            &.checkbox {
+                &:before {
+                    content: " ";
+                }
+                border: 3px solid @item-text-color;
+                width:18px;
+                height:18px;
+                font-size:18px;
+                font-weight: bold;
+                border-radius: 2px;
             }
         }
 
@@ -66,8 +79,21 @@
             color:@item-text-selected-color;
             background-color:@item-selected-color;
             .gmcq-answer-icon {
-                &:before {
-                    content:"\e65d";
+                &.radio {
+                    &:before {
+                        content: "\e65d";
+                    }
+                }
+                &.checkbox {
+                    &:before {
+                        content: "\e633";
+                    }
+                    border: 3px solid @item-text-selected-color;
+                    width:18px;
+                    height:18px;
+                    font-size:18px;
+                    font-weight: bold;
+                    border-radius: 2px;
                 }
             }
             .gmcq-item-icon {
