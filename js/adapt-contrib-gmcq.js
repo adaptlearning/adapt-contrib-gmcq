@@ -14,7 +14,8 @@ define(function(require) {
             var events = {
                 'focus .gmcq-item input': 'onItemFocus',
                 'blur .gmcq-item input': 'onItemBlur',
-                'change .gmcq-item input': 'onItemSelected'
+                'change .gmcq-item input': 'onItemSelected',
+                'keyup .gmcq-item input':'onKeyPress'
             };
 
             if ($('html').hasClass('ie8')) {
