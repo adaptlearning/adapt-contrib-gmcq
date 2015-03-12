@@ -43,6 +43,8 @@ define(function(require) {
         },
 
         setupQuestion: function() {
+            // Radio button or checkbox
+            this.model.set("_isRadio", (this.model.get("_selectable") == 1) );
 
             this.listenTo(Adapt, 'device:changed', this.resizeImage);
 
