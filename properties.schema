@@ -152,6 +152,11 @@
             "type":"string",
             "required":false,
             "title": "Answer text"
+          },
+          "feedback": {
+            "type":"string",
+            "required":false,
+            "title": "Incorrect answer feedback (Number of items to select must be 1)"
           }
         }
       }

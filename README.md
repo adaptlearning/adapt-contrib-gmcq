@@ -87,6 +87,10 @@ Enter a path to the image for small device width. Paths should be relative to th
 
 course/en/images/gqcq-1-small.gif
 
+###feedback
+
+Feedback text that will be shown if this item is selected and is an incorrect answer. This only applies for `radio` button style questions where the value for `_selectable` is set to 1.
+
 ##Limitations
  
 To be completed.
