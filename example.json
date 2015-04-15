@@ -30,8 +30,7 @@
                 "alt": "Alt text for option 2",
                 "large": "course/en/images/gqcq-2-large.gif",
                 "small": "course/en/images/gqcq-2-small.gif"
-            },
-            "feedback":"Option two incorrect feedback"
+            }
         }
     ],
     "_feedback":{

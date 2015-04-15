@@ -19,7 +19,9 @@ To Be Updated
 
 ##Settings overview
  
-An complete example of this components settings can be found in the [example.json](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/example.json) file. A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
+An complete example of this components settings can be found in the [example.json](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/example.json) file. A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes). 
+
+Like [MCQ](https://github.com/adaptlearning/adapt-contrib-mcq), this component supports option specific feedback. To see how to set that up, please look at the [example.json](https://github.com/adaptlearning/adapt-contrib-mcq/blob/master/example.json) in adapt-contrib-mcq.
 
 Further settings for this component are:
 
@@ -86,10 +88,6 @@ course/en/images/gqcq-1-large.gif
 Enter a path to the image for small device width. Paths should be relative to the src folder, e.g.
 
 course/en/images/gqcq-1-small.gif
-
-###feedback
-
-Feedback text that will be shown if this item is selected and is an incorrect answer. This only applies for `radio` button style questions where the value for `_selectable` is set to 1.
 
 ##Limitations
  
