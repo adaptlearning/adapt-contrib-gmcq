@@ -1,6 +1,6 @@
 <div class="gmcq-inner component-inner clearfix" role="region" aria-label="{{_globals._components._gmcq.ariaRegion}}" {{#if _accessibility._ariaRegions.gmcq}}tabindex="0"{{/if}}>
     {{> component this}}
-    <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+    <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isInteractionComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
             <input type="checkbox" id="{{../_id}}-{{@index}}" aria-labelledby="{{../_id}}-{{@index}}-aria"/>
