@@ -46,6 +46,11 @@ define(function(require) {
             // Radio button or checkbox
             this.model.set("_isRadio", (this.model.get("_selectable") == 1) );
 
+            this.model.set('_selectedItems', []);
+
+            this.setupQuestionItemIndexes();
+            this.restoreUserAnswers();
+
             this.listenTo(Adapt, 'device:changed', this.resizeImage);
 
         },
