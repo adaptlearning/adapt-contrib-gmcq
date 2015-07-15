@@ -14,7 +14,7 @@ This component can also be installed by adding the component to the adapt.json f
 
 ##Usage
 
-To Be Updated
+To be updated.
 
 ##Settings overview
  
