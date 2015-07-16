@@ -1,9 +1,8 @@
 #adapt-contrib-gmcq
 
-A graphical multiple choice question
+A graphical multiple choice question.
 
 ##Installation
-
 
 First, be sure to install the [Adapt Command Line Interface](https://github.com/adaptlearning/adapt-cli), then from the command line run:-
 
@@ -15,11 +14,11 @@ This component can also be installed by adding the component to the adapt.json f
 
 ##Usage
 
-To Be Updated
+To be updated.
 
 ##Settings overview
  
-An complete example of this components settings can be found in the [example.json](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/example.json) file. A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes). 
+An complete example of this components settings can be found in the [example.json](example.json) file. A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes). 
 
 Like [MCQ](https://github.com/adaptlearning/adapt-contrib-mcq), this component supports option specific feedback. To see how to set that up, please look at the [example.json](https://github.com/adaptlearning/adapt-contrib-mcq/blob/master/example.json) in adapt-contrib-mcq.
 
