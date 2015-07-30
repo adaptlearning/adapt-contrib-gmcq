@@ -1,8 +1,3 @@
-/*
- * adapt-contrib-gmcq
- * License - https://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Daryl Hedley <darylhedley@gmail.com>, Himanshu Rajotia <himanshu.rajotia@credipoint.com>
- */
 define(function(require) {
     var Mcq = require('components/adapt-contrib-mcq/js/adapt-contrib-mcq');
     var Adapt = require('coreJS/adapt');
