@@ -36,7 +36,7 @@ The attributes listed below are used in *components.json* to configure **GMCQ**,
 
 In addition to the attributes specifically listed below, [*question components*](https://github.com/adaptlearning/adapt_framework/wiki/Core-Plug-ins-in-the-Adapt-Learning-Framework#question-components) can implement the following sets of attributes:   
 + [**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. They have no default values. Like the attributes below, their values are assigned in *components.json*. 
-+ [**core buttons**](https://github.com/chucklorenz/demo-wiki/wiki/Core-Buttons): Default values are found in *course.json*, but may be overridden by **GMCQ's** model in *components.json*.
++ [**core buttons**](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons): Default values are found in *course.json*, but may be overridden by **GMCQ's** model in *components.json*.
 
 **_component** (string): This value must be: `gmcq`.
 
@@ -49,7 +49,7 @@ guide the learner’s interaction with the component.
 
 **_attempts** (integer): This specifies the number of times a learner is allowed to submit an answer. The default is `1`.    
 
-**_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/chucklorenz/demo-wiki/wiki/Core-Buttons) attribute group. The default is `false`.  
+**_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) attribute group. The default is `false`.  
 
 **_isRandom** (boolean): Setting this value to `true` will cause the **_items** to appear in a random order each time the component is loaded. The default is `true`.   
 
@@ -89,7 +89,8 @@ contains values for three types of answers: **correct**, **_incorrect**, and **_
 >>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted.   
 
 ### Accessibility
-**Graphical Multiple Choice Question** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. Aria labels are not visible elements. They are utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/properties.schema).   
+**Graphical Multiple Choice Question** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This
+label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/properties.schema).   
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ## Limitations
