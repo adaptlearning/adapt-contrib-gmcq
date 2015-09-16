@@ -57,6 +57,8 @@ guide the learner’s interaction with the component.
 
 **_selectable** (number): Defines the number of **_items**, or answers, that can be selected. If the value of **_selectable** is `1`, **_items** will be presented with HTML radio buttons. If the value is greater than `1`, they will be presented with HTML checkboxes. This number must match the number of **_items** whose **_shouldBeSelected** is set to `true`. The default is `1`.
 
+**_recordInteraction** (boolean) Determines whether the question uses SCORM cmi.interactions to track each attempt the user makes.
+
 **_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **_graphic**, **text**, and **_shouldBeSelected**.  
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  
