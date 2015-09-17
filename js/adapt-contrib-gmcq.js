@@ -20,7 +20,6 @@ define(function(require) {
                 };
 
                 events = _.extend(events, ie8Events);
-
             }
 
             return events;
@@ -38,12 +37,15 @@ define(function(require) {
         },
 
         setupQuestion: function() {
-            // Radio button or checkbox
+            // if only one answer is selectable, we should display radio buttons not checkboxes
             this.model.set("_isRadio", (this.model.get("_selectable") == 1) );
 
             this.model.set('_selectedItems', []);
 
             this.setupQuestionItemIndexes();
+
+            this.setupRandomisation();
+
             this.restoreUserAnswers();
 
             this.listenTo(Adapt, 'device:changed', this.resizeImage);
@@ -71,6 +73,7 @@ define(function(require) {
 
         },
 
+        // hack for IE8
         forceChangeEvent: function(event) {
 
             $("#" + $(event.currentTarget).closest("label").attr("for")).change();
