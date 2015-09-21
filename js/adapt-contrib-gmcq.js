@@ -80,6 +80,8 @@ define(function(require) {
 
         }
 
+    }, {
+        template: 'gmcq'
     });
 
     Adapt.register("gmcq", Gmcq);
