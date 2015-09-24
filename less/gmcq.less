@@ -2,50 +2,21 @@
 
     .gmcq-item {
         position: relative;
-        width: 50%;
-        margin-bottom: @item-margin-bottom;
         float: left;
         .dir-rtl & {
             float: right;
         }
 
-        &.even {
-            label {
-                margin-left: 5%;
-                .dir-rtl & {
-                    margin-left: inherit;
-                    margin-right: 5%;
-                }
-            }
-        }
-
-        &.odd {
-            label {
-                margin-right: 5%;
-                .dir-rtl & {
-                    margin-right: inherit;
-                    margin-left: 5%;
-                }
-            }
-        }
-
-        @media all and (max-width:760px) {
-            width: 100%;
-            &.even, 
-            &.odd {
-                label {
-                    margin-left: 0%;
-                    margin-right: 0%;
-                }
-            }
-        }
+        // @media all and (max-width: @device-width-medium) {
+        //     width: 100%;
+        // }
     }
 
     .gmcq-item label {
         color: @item-text-color;
         display: block;
         border: @item-border;
-        margin-bottom: @item-margin-bottom;
+        margin: @item-margin;
         position: relative;
         z-index: 1;
         background-color: @item-color;
@@ -117,6 +88,8 @@
         position: absolute;
         top: 25px;
         left: 25px;
+        filter: alpha(opacity=0); // ie8 fix for opacity on input
+        opacity: 0;
         .dir-rtl & {
             left: inherit;
             right: 25px;
