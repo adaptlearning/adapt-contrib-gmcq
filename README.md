@@ -57,11 +57,13 @@ guide the learner’s interaction with the component.
 
 **_selectable** (number): Defines the number of **_items**, or answers, that can be selected. If the value of **_selectable** is `1`, **_items** will be presented with HTML radio buttons. If the value is greater than `1`, they will be presented with HTML checkboxes. This number must match the number of **_items** whose **_shouldBeSelected** is set to `true`. The default is `1`.
 
-**_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **_graphic**, **text**, and **_shouldBeSelected**.  
+**_items** (array): Each *item* represents one choice for the multiple choice question and contains values for  **text**, **_shouldBeSelected**,  **feedback** and **_graphic**.  
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  
 
 >**_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **_selectable** must correspond to the number of **_items** where **_shouldBeSelected** is set to `true`. 
+
+>**feedback** (string): This attribute is used only when the value for **_selectable** is set to `1` (i.e., radio button style questions). This text will be shown if the learner selects this item, and it is an incorrect answer. 
 
 >**_graphic** (object): The image that appears as a possible answer. It contains values for **large**, **small**, **alt**, and **title**. 
 
