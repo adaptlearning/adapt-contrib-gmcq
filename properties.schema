@@ -64,6 +64,15 @@
       "validators": ["number"],
       "help": "How much this question is worth"
     },
+    "_recordInteraction": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Record interaction",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
+    },
     "_selectable": {
       "type":"number",
       "required":true,
