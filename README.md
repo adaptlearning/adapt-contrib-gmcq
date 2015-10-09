@@ -74,7 +74,7 @@ guide the learner’s interaction with the component.
 >>**alt** (string): This text becomes the image’s `alt` attribute.  
 
 **_feedback** (object): If the [**Tutor** extension](https://github.com/adaptlearning/adapt-contrib-tutor) is enabled, these various texts will be displayed depending on the submitted answer. **_feedback**
-contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**.
+contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**. Some attributes are optional. If they are not supplied, the default that is noted below will be used.
 
 >**correct** (string): Text that will be displayed when the submitted answer is correct.  
 
@@ -82,13 +82,13 @@ contains values for three types of answers: **correct**, **_incorrect**, and **_
 
 >>**final** (string): Text that will be displayed when the submitted answer is incorrect and no more attempts are permitted. 
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted.  
+>>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead. 
 
 >**_partlyCorrect** (object): Texts that will be displayed when the submitted answer is partially correct. It contains values that are displayed under differing conditions: **final** and **notFinal**.  
 
->>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. 
+>>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead.  
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted.   
+>>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.notFinal** feedback will be shown instead.  
 
 ### Accessibility
 **Graphical Multiple Choice Question** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This
