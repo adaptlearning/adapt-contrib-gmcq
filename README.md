@@ -59,6 +59,8 @@ guide the learner’s interaction with the component.
 
 **_recordInteraction** (boolean) Determines whether or not the user's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).
 
+**_columns** (number): Defines the number of columns **_items** are displayed in. If the value of **_columns** is `3` and there are `6` **_items**, **_items** will be displayed within `3` columns each containing `2` **_items**. **_columns** defaults to `1` at mobile view. Odd number of **_items** are centered for better presentation.
+
 **_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **_graphic**, **text**, and **_shouldBeSelected**.  
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  

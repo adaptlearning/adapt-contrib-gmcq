@@ -82,6 +82,15 @@
       "validators": ["number", "required"],
       "help": "How many items are selectable"
     },
+    "_columns": {
+      "type":"number",
+      "required":true,
+      "default": 1,
+      "title": "Item columns",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "How many columns to display items"
+    },
     "_items": {
       "type":"array",
       "required":true,
