@@ -73,6 +73,15 @@
       "validators": [],
       "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
     },
+    "_columns": {
+      "type": "number",
+      "required": true,
+      "default": 0,
+      "title": "Item columns",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "How many columns to display items"
+    },
     "_selectable": {
       "type":"number",
       "required":true,
