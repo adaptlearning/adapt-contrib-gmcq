@@ -76,7 +76,7 @@
     "_columns": {
       "type": "number",
       "required": true,
-      "default": 1,
+      "default": 0,
       "title": "Item columns",
       "inputType": "Number",
       "validators": ["number"],
