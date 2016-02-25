@@ -77,7 +77,7 @@ define([
 
     return Adapt.register("gmcq", {
         view: Gmcq,
-        model: Mcq.model
+        model: Mcq.model.extend({})
     });
 
 });
