@@ -12,6 +12,7 @@
     "_selectable":1,
     "_canShowModelAnswer": true,
     "_recordInteraction":true,
+    "_columns": 3,
     "title": "GMCQ",
     "displayTitle": "GMCQ",
     "body": "Which of the following options would you consider to be correct?",
