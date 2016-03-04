@@ -1,5 +1,45 @@
 .gmcq-component {
+    &.gmcq-column-layout {
+		.gmcq-widget {
+			font-size: 0;
+			text-align: center;
+		}
 
+		.gmcq-item {
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+
+			.dir-rtl & {
+				float: none;
+			}
+
+			&.even,
+			&.odd {
+				label {
+					margin: 2.5%;
+
+					.dir-rtl & {
+						margin: 2.5%;
+					}
+
+					@media (max-width: @device-width-medium) {
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.gmcq-item-inner {
+			font-size: @body-text-font-size;
+			text-align: left;
+
+			.dir-rtl & {
+				text-align: right;
+			}
+		}
+	}
+	
     .gmcq-item {
         position: relative;
         width: 50%;
