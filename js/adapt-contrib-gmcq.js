@@ -25,6 +25,18 @@ define(function(require) {
             return events;
 
         },
+        
+        setUpColumns: function() {
+            var columns = this.model.get('_columns');
+
+            if (!columns) return;
+
+            this.$el.addClass('gmcq-column-layout');
+
+            if (Adapt.device.screenSize === 'large') {
+                this.$('.gmcq-item').css('width', (100 / columns) + '%');
+            }
+        },
 
         onItemSelected: function(event) {
 
