@@ -73,6 +73,15 @@
       "validators": [],
       "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
     },
+    "_columns": {
+      "type": "number",
+      "required": false,
+      "default": 0,
+      "title": "Columns",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "Set the number of columns. If value is '0', component uses the default layout."
+    },
     "_selectable": {
       "type":"number",
       "required":true,
