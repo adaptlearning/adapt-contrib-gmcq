@@ -61,6 +61,8 @@ guide the learner’s interaction with the component.
 
 **_recordInteraction** (boolean) Determines whether or not the learner's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).
 
+**_columns** (number): Defines the number of columns wide the **_items** are displayed in. If the value of **_numberOfColumns** is `2`, each **_items** will be 50% wide. Similarly, if the value of **_numberOfColumns** is `3`, each **_items** will be 33.3% wide. In mobile view, the width of each **_items** is 100%.
+
 **_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **_graphic**, **text**, and **_shouldBeSelected**.  
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  
@@ -104,7 +106,7 @@ label is not a visible element. It is utilized by assistive technology such as s
 No known limitations.   
 
 ----------------------------
-**Version number:**  2.0.2   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.0.3   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:** 2.0  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-gmcq/graphs/contributors)  
 **Accessibility support:** WAI AA   
