@@ -67,11 +67,17 @@ define(function(require) {
         onQuestionRendered: function() {
 
             this.resizeImage(Adapt.device.screenSize);
+            this.listenTo(Adapt, 'device:resize', this.onScreenSizeChanged);
+            this.setUpColumns();
 
             this.$('label').imageready(_.bind(function() {
                 this.setReadyStatus();
             }, this));
 
+        },
+        
+        onScreenSizeChanged: function() {
+            this.setUpColumns();
         },
 
         resizeImage: function(width) {
