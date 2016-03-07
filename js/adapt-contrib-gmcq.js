@@ -31,10 +31,12 @@ define(function(require) {
 
             if (!columns) return;
 
-            this.$el.addClass('gmcq-column-layout');
-
             if (Adapt.device.screenSize === 'large') {
+                this.$el.addClass('gmcq-column-layout');
                 this.$('.gmcq-item').css('width', (100 / columns) + '%');
+            } else {
+                this.$el.removeClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', '');
             }
         },
 
