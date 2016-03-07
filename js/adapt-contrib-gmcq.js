@@ -25,20 +25,6 @@ define(function(require) {
             return events;
 
         },
-        
-        setUpColumns: function() {
-            var columns = this.model.get('_columns');
-
-            if (!columns) return;
-
-            if (Adapt.device.screenSize === 'large') {
-                this.$el.addClass('gmcq-column-layout');
-                this.$('.gmcq-item').css('width', (100 / columns) + '%');
-            } else {
-                this.$el.removeClass('gmcq-column-layout');
-                this.$('.gmcq-item').css('width', '');
-            }
-        },
 
         onItemSelected: function(event) {
 
@@ -62,14 +48,16 @@ define(function(require) {
 
             this.restoreUserAnswers();
 
-            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+            this.listenTo(Adapt, {
+                'device:changed': this.resizeImage,
+                'device:resize': this.onDeviceResize
+            });
 
         },
 
         onQuestionRendered: function() {
 
             this.resizeImage(Adapt.device.screenSize);
-            this.listenTo(Adapt, 'device:resize', this.onScreenSizeChanged);
             this.setUpColumns();
 
             this.$('label').imageready(_.bind(function() {
@@ -78,7 +66,7 @@ define(function(require) {
 
         },
         
-        onScreenSizeChanged: function() {
+        onDeviceResize: function() {
             this.setUpColumns();
         },
 
@@ -91,6 +79,20 @@ define(function(require) {
                 $(this).find('img').attr('src', src);
             });
 
+        },
+
+        setUpColumns: function() {
+            var columns = this.model.get('_columns');
+
+            if (!columns) return;
+
+            if (Adapt.device.screenSize === 'large') {
+                this.$el.addClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', (100 / columns) + '%');
+            } else {
+                this.$el.removeClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', '');
+            }
         },
 
         // hack for IE8
