@@ -277,7 +277,7 @@
               "required": false,
               "default": "",
               "title": "",
-              "inputType": "Text",
+              "inputType": "QuestionButton",
               "validators": [],
               "help": "Aria label for the submit button",
               "translatable": true
@@ -303,7 +303,7 @@
               "required": false,
               "default": "",
               "title": "",
-              "inputType": "Text",
+              "inputType": "QuestionButton",
               "validators": [],
               "help": "Aria label for the reset button",
               "translatable": true
@@ -329,7 +329,7 @@
               "required": false,
               "default": "",
               "title": "",
-              "inputType": "Text",
+              "inputType": "QuestionButton",
               "validators": [],
               "help": "Aria label for the show model answer button",
               "translatable": true
