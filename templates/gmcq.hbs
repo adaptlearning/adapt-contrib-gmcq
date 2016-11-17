@@ -4,7 +4,7 @@
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}correct{{else}}incorrect{{/if}}{{/if}}{{/unless}} item-{{@index}} {{odd @index}}">
             <input type="checkbox" id="{{../_id}}-{{@index}}" aria-labelledby="{{../_id}}-{{@index}}-aria"{{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{a11y_normalize text}} {{_graphic.alt}}"/>
-            <label aria-hidden="true" id="{{../_id}}-{{@index}}-aria" for="{{../_id}}-{{@index}}" class="{{#unless ../_isEnabled}}disabled {{/unless}} component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}}">
+            <label aria-hidden="true" id="{{../_id}}-{{@index}}-aria" for="{{../_id}}-{{@index}}" class="{{#unless ../_isEnabled}}disabled {{/unless}} component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}} a11y-ignore" tabindex="-1">
 
                 <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"/>
 
