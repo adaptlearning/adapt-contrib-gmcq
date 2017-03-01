@@ -40,17 +40,26 @@ define([
         setupQuestion: function() {
             Mcq.view.prototype.setupQuestion.call(this);
 
-            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+            this.listenTo(Adapt, {
+                'device:changed': this.resizeImage,
+                'device:resize': this.onDeviceResize
+            });
+
         },
 
         onQuestionRendered: function() {
 
             this.resizeImage(Adapt.device.screenSize);
+            this.setUpColumns();
 
             this.$('label').imageready(_.bind(function() {
                 this.setReadyStatus();
             }, this));
 
+        },
+        
+        onDeviceResize: function() {
+            this.setUpColumns();
         },
 
         resizeImage: function(width) {
@@ -62,6 +71,20 @@ define([
                 $(this).find('img').attr('src', src);
             });
 
+        },
+
+        setUpColumns: function() {
+            var columns = this.model.get('_columns');
+
+            if (!columns) return;
+
+            if (Adapt.device.screenSize === 'large') {
+                this.$el.addClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', (100 / columns) + '%');
+            } else {
+                this.$el.removeClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', '');
+            }
         },
 
         // hack for IE8

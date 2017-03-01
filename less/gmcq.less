@@ -1,5 +1,42 @@
 .gmcq-component {
+    &.gmcq-column-layout {
+        .gmcq-widget {
+            // Font size set to 0 so there's no gap between items
+            font-size: 0;
+            text-align: center;
+        }
 
+        .gmcq-item {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+
+            .dir-rtl & {
+                float: none;
+            }
+
+            &.even,
+            &.odd {
+                label {
+                    margin: 2.5%;
+
+                    .dir-rtl & {
+                        margin: 2.5%;
+                    }
+                }
+            }
+        }
+
+        .gmcq-item-inner {
+            font-size: @body-text-font-size;
+            text-align: left;
+
+            .dir-rtl & {
+                text-align: right;
+            }
+        }
+    }
+	
     .gmcq-item {
         position: relative;
         width: 50%;
@@ -173,7 +210,8 @@
             .gmcq-item-icon {
                 display: none;
             }
-            .selected .gmcq-correct-icon {
+            .incorrect .selected .gmcq-correct-icon,
+            .correct .selected .gmcq-correct-icon {
                 display: block;
             }
         }

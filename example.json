@@ -1,6 +1,6 @@
 {
-    "_id":"c-125",
-    "_parentId":"b-60",
+    "_id":"c-05",
+    "_parentId":"b-05",
     "_type":"component",
     "_component":"gmcq",
     "_classes":"",
@@ -11,7 +11,9 @@
     "_isRandom":false,
     "_selectable":1,
     "_canShowModelAnswer": true,
+    "_canShowMarking": true,
     "_recordInteraction":true,
+    "_columns": 3,
     "title": "GMCQ",
     "displayTitle": "GMCQ",
     "body": "Which of the following options would you consider to be correct?",
