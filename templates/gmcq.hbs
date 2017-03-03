@@ -7,6 +7,9 @@
             <label aria-hidden="true" id="{{../_id}}-{{@index}}-aria" for="{{../_id}}-{{@index}}" class="{{#unless ../_isEnabled}}disabled {{/unless}} component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}} a11y-ignore" tabindex="-1">
 
                 <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"/>
+                {{#if _graphic.attribution}}
+                    <div class="graphic-attribution">{{{_graphic.attribution}}}</div>
+                {{/if}}
 
                 <div class="gmcq-item-checkbox">
                     <div class="gmcq-item-state">
