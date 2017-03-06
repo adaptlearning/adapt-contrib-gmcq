@@ -1,8 +1,9 @@
-define(function(require) {
-    var Mcq = require('components/adapt-contrib-mcq/js/adapt-contrib-mcq');
-    var Adapt = require('coreJS/adapt');
+define([
+    'coreJS/adapt',
+    'components/adapt-contrib-mcq/js/adapt-contrib-mcq'
+], function(Adapt, Mcq) {
 
-    var Gmcq = Mcq.extend({
+    var Gmcq = Mcq.view.extend({
 
         events: function() {
 
@@ -37,16 +38,7 @@ define(function(require) {
         },
 
         setupQuestion: function() {
-            // if only one answer is selectable, we should display radio buttons not checkboxes
-            this.model.set("_isRadio", (this.model.get("_selectable") == 1) );
-
-            this.model.set('_selectedItems', []);
-
-            this.setupQuestionItemIndexes();
-
-            this.setupRandomisation();
-
-            this.restoreUserAnswers();
+            Mcq.view.prototype.setupQuestion.call(this);
 
             this.listenTo(Adapt, {
                 'device:changed': this.resizeImage,
@@ -106,8 +98,9 @@ define(function(require) {
         template: 'gmcq'
     });
 
-    Adapt.register("gmcq", Gmcq);
-
-    return Gmcq;
+    return Adapt.register("gmcq", {
+        view: Gmcq,
+        model: Mcq.model.extend({})
+    });
 
 });
