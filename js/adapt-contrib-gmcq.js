@@ -5,26 +5,11 @@ define([
 
     var Gmcq = Mcq.view.extend({
 
-        events: function() {
-
-            var events = {
+        events: {
                 'focus .gmcq-item input': 'onItemFocus',
                 'blur .gmcq-item input': 'onItemBlur',
                 'change .gmcq-item input': 'onItemSelected',
                 'keyup .gmcq-item input':'onKeyPress'
-            };
-
-            if ($('html').hasClass('ie8')) {
-
-                var ie8Events = {
-                    'click label img': 'forceChangeEvent'
-                };
-
-                events = _.extend(events, ie8Events);
-            }
-
-            return events;
-
         },
 
         onItemSelected: function(event) {
@@ -85,13 +70,6 @@ define([
                 this.$el.removeClass('gmcq-column-layout');
                 this.$('.gmcq-item').css('width', '');
             }
-        },
-
-        // hack for IE8
-        forceChangeEvent: function(event) {
-
-            $("#" + $(event.currentTarget).closest("label").attr("for")).change();
-
         }
 
     }, {
