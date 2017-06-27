@@ -6,10 +6,10 @@ define([
     var Gmcq = Mcq.view.extend({
 
         events: {
-                'focus .gmcq-item input': 'onItemFocus',
-                'blur .gmcq-item input': 'onItemBlur',
-                'change .gmcq-item input': 'onItemSelected',
-                'keyup .gmcq-item input':'onKeyPress'
+            'focus .gmcq-item input': 'onItemFocus',
+            'blur .gmcq-item input': 'onItemBlur',
+            'change .gmcq-item input': 'onItemSelected',
+            'keyup .gmcq-item input': 'onKeyPress'
         },
 
         onItemSelected: function(event) {
