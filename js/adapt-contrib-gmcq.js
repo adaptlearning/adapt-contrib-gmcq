@@ -1,5 +1,5 @@
 define([
-    'coreJS/adapt',
+    'core/js/adapt',
     'components/adapt-contrib-mcq/js/adapt-contrib-mcq'
 ], function(Adapt, Mcq) {
 
@@ -48,12 +48,14 @@ define([
         },
 
         resizeImage: function(width) {
-
             var imageWidth = width === 'medium' ? 'small' : width;
 
             this.$('label').each(function(index) {
-                var src = $(this).find('img').attr('data-' + imageWidth);
-                $(this).find('img').attr('src', src);
+                var $img = $(this).find('img');
+                var newSrc = $img.attr('data-' + imageWidth);
+                if(newSrc) {
+                    $img.attr('src', newSrc);
+                }
             });
 
         },
