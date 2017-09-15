@@ -53,7 +53,7 @@ define([
             this.$('label').each(function(index) {
                 var $img = $(this).find('img');
                 var newSrc = $img.attr('data-' + imageWidth);
-                if(newSrc) {
+                if (newSrc) {
                     $img.attr('src', newSrc);
                 }
             });
