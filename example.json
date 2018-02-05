@@ -22,7 +22,7 @@
     "_items": [
         {
             "text": "This is option 1.",
-            "_shouldBeSelected":true,
+            "_shouldBeSelected": true,
             "_graphic": {
                 "alt": "Alt text for option 1",
                 "attribution": "Copyright © 2015",
@@ -42,6 +42,7 @@
         }
     ],
     "_feedback":{
+        "title": "Feedback title",
         "correct": "Congratulations, this is the correct feedback.",
         "_incorrect": {
             "notFinal": "",
