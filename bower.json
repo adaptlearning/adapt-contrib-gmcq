@@ -12,5 +12,8 @@
     "adapt-plugin",
     "adapt-component"
   ],
+  "pluginDependencies": {
+    "adapt-contrib-mcq": ">=2.1"
+  },
   "license": "GPLv3"
 }
