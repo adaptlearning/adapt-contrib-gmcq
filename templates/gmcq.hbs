@@ -1,12 +1,12 @@
-<div class="gmcq-inner component-inner clearfix" role="region" aria-label="{{_globals._components._gmcq.ariaRegion}}">
+<div class="gmcq-inner component-inner clearfix">
     {{> component this}}
     <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isInteractionComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         {{#each _items}}
         <div class="gmcq-item component-item {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}correct{{else}}incorrect{{/if}}{{/if}}{{/unless}} item-{{@index}} {{odd @index}}">
-            <input type="checkbox" id="{{../_id}}-{{@index}}" aria-labelledby="{{../_id}}-{{@index}}-aria"{{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{a11y_normalize text}} {{_graphic.alt}}"/>
-            <label aria-hidden="true" id="{{../_id}}-{{@index}}-aria" for="{{../_id}}-{{@index}}" class="{{#unless ../_isEnabled}}disabled {{/unless}} component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}} a11y-ignore" tabindex="-1">
+            <input {{#if ../_isRadio}}name="{{../_id}}-item" {{/if}} type="{{#if ../_isRadio}}radio{{else}}checkbox{{/if}}" id="{{../_id}}-{{@index}}-input" {{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{{a11y_normalize text}}}" data-adapt-index="{{_index}}" />
+            <label aria-hidden="true" for="{{../_id}}-{{@index}}-input" class="component-item-color component-item-text-color component-item-border gmcq-item-container{{#unless ../_isEnabled}} disabled {{/unless}}{{#if _isSelected}} selected{{/if}}" data-adapt-index="{{_index}}" >
 
-                <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"/>
+                <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-label="{{_graphic.alt}}" />
                 {{#if _graphic.attribution}}
                     <div class="graphic-attribution">{{{_graphic.attribution}}}</div>
                 {{/if}}
