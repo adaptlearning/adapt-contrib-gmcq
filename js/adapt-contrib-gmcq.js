@@ -20,9 +20,7 @@ define([
             this.resizeImage(Adapt.device.screenSize);
             this.setUpColumns();
 
-            this.$('label').imageready(function() {
-                this.setReadyStatus();
-            }.bind(this));
+            this.$('label').imageready(this.setReadyStatus.bind(this));
 
         },
 
