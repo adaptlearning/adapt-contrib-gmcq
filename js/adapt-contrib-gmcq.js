@@ -20,9 +20,9 @@ define([
             this.resizeImage(Adapt.device.screenSize);
             this.setUpColumns();
 
-            this.$('label').imageready(_.bind(function() {
+            this.$('label').imageready(function() {
                 this.setReadyStatus();
-            }, this));
+            }.bind(this));
 
         },
 
@@ -36,9 +36,8 @@ define([
             this.$('label').each(function(index) {
                 var $img = $(this).find('img');
                 var newSrc = $img.attr('data-' + imageWidth);
-                if (newSrc) {
-                    $img.attr('src', newSrc);
-                }
+                if (!newSrc) return;
+                $img.attr('src', newSrc);
             });
 
         },
