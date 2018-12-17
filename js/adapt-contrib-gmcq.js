@@ -5,23 +5,6 @@ define([
 
     var Gmcq = Mcq.view.extend({
 
-        events: {
-            'focus .gmcq-item input': 'onItemFocus',
-            'blur .gmcq-item input': 'onItemBlur',
-            'change .gmcq-item input': 'onItemSelected',
-            'keyup .gmcq-item input': 'onKeyPress'
-        },
-
-        onItemSelected: function(event) {
-
-            var selectedItemObject = this.model.get('_items')[$(event.currentTarget).parent('.gmcq-item').index()];
-
-            if (this.model.get('_isEnabled') && !this.model.get('_isSubmitted')) {
-                this.toggleItemSelected(selectedItemObject, event);
-            }
-
-        },
-
         setupQuestion: function() {
             Mcq.view.prototype.setupQuestion.call(this);
 
@@ -42,7 +25,7 @@ define([
             }, this));
 
         },
-        
+
         onDeviceResize: function() {
             this.setUpColumns();
         },
