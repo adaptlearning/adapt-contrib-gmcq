@@ -5,21 +5,6 @@ define([
 
   var Gmcq = Mcq.view.extend({
 
-    events: {
-      'focus .js-item-input': 'onItemFocus',
-      'blur .js-item-input': 'onItemBlur',
-      'change .js-item-input': 'onItemSelected',
-      'keyup .js-item-input': 'onKeyPress'
-    },
-
-    onItemSelected: function(event) {
-      var selectedItemObject = this.model.get('_items')[$(event.currentTarget).parent('.js-mcq-item').index()];
-
-      if (this.model.get('_isEnabled') && !this.model.get('_isSubmitted')) {
-        this.toggleItemSelected(selectedItemObject, event);
-      }
-    },
-
     setupQuestion: function() {
       Mcq.view.prototype.setupQuestion.call(this);
 
@@ -27,15 +12,16 @@ define([
         'device:changed': this.resizeImage,
         'device:resize': this.onDeviceResize
       });
+
     },
 
     onQuestionRendered: function() {
+
       this.resizeImage(Adapt.device.screenSize);
       this.setUpColumns();
 
-      this.$('.js-item-label').imageready(_.bind(function() {
-        this.setReadyStatus();
-      }, this));
+      this.$('.js-item-label').imageready(this.setReadyStatus.bind(this));
+
     },
 
     onDeviceResize: function() {
@@ -43,15 +29,15 @@ define([
     },
 
     resizeImage: function(width) {
-      var imageWidth = width === 'medium' ? 'small' : width;
+        var imageWidth = width === 'medium' ? 'small' : width;
 
-      this.$('.js-item-label').each(function(index) {
-        var $img = $(this).find('img');
-        var newSrc = $img.attr('data-' + imageWidth);
-        if (newSrc) {
+        this.$('.js-item-label').each(function(index) {
+          var $img = $(this).find('img');
+          var newSrc = $img.attr('data-' + imageWidth);
+          if (!newSrc) return;
           $img.attr('src', newSrc);
-        }
-      });
+        });
+
     },
 
     setUpColumns: function() {
