@@ -1,7 +1,7 @@
 {
   "name": "adapt-contrib-gmcq",
-  "version": "3.0.0",
-  "framework": ">=2.0.11",
+  "version": "4.0.0",
+  "framework": ">=4",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
   "issues": "https://github.com/adaptlearning/adapt_framework/issues/new",
   "displayName" : "Graphical Multiple Choice Question",
@@ -13,7 +13,7 @@
     "adapt-component"
   ],
   "pluginDependencies": {
-    "adapt-contrib-mcq": ">=2.1"
+    "adapt-contrib-mcq": ">=3"
   },
   "license": "GPLv3"
 }
