@@ -1,84 +1,84 @@
 {
-    "_id": "c-05",
-    "_parentId": "b-05",
-    "_type": "component",
-    "_component": "gmcq",
-    "_classes": "",
-    "_layout": "full",
-    "_attempts": 1,
-    "_shouldDisplayAttempts": false,
-    "_questionWeight": 1,
-    "_isRandom": false,
-    "_selectable": 1,
-    "_canShowModelAnswer": true,
-    "_canShowFeedback": true,
-    "_canShowMarking": true,
-    "_recordInteraction": true,
-    "_columns": 3,
-    "title": "GMCQ",
-    "displayTitle": "GMCQ",
-    "body": "Which of the following options would you consider to be correct?",
-    "instruction": "",
-    "_items": [
-        {
-            "text": "This is option 1.",
-            "_shouldBeSelected": true,
-            "_graphic": {
-                "alt": "Alt text for option 1",
-                "attribution": "Copyright © 2015",
-                "large": "course/en/images/gqcq-1-large.gif",
-                "small": "course/en/images/gqcq-1-small.gif"
-            }
-        },
-        {
-            "text": "This is option 2.",
-            "_shouldBeSelected": false,
-            "_graphic": {
-                "alt": "Alt text for option 2",
-                "attribution": "Copyright © 2015",
-                "large": "course/en/images/gqcq-2-large.gif",
-                "small": "course/en/images/gqcq-2-small.gif"
-            }
-        }
-    ],
-    "_feedback":{
-        "title": "Feedback",
-        "correct": "Congratulations, this is the correct feedback.",
-        "_incorrect": {
-            "notFinal": "",
-            "final": "Unfortunately this is the incorrect feedback."
-        },
-        "_partlyCorrect": {
-            "notFinal": "",
-            "final": "This is the partly correct feedback."
-        }
+  "_id": "c-05",
+  "_parentId": "b-05",
+  "_type": "component",
+  "_component": "gmcq",
+  "_classes": "",
+  "_layout": "full",
+  "_attempts": 1,
+  "_shouldDisplayAttempts": false,
+  "_questionWeight": 1,
+  "_isRandom": false,
+  "_selectable": 1,
+  "_canShowModelAnswer": true,
+  "_canShowFeedback": true,
+  "_canShowMarking": true,
+  "_recordInteraction": true,
+  "_columns": 3,
+  "title": "GMCQ",
+  "displayTitle": "GMCQ",
+  "body": "Which of the following options would you consider to be correct?",
+  "instruction": "",
+  "_items": [
+    {
+      "text": "This is option 1.",
+      "_shouldBeSelected": true,
+      "_graphic": {
+        "alt": "Alt text for option 1",
+        "attribution": "Copyright © 2015",
+        "large": "course/en/images/gqcq-1-large.gif",
+        "small": "course/en/images/gqcq-1-small.gif"
+      }
     },
-    "_comment": "You only need to include _buttons if you want to override the button labels that are set in course.json",
-    "_buttons": {
-        "_submit": {
-            "buttonText": "Submit",
-            "ariaLabel": "Select here to submit your answer."
-        },
-        "_reset": {
-            "buttonText": "Reset",
-            "ariaLabel": ""
-        },
-        "_showCorrectAnswer": {
-            "buttonText": "Correct Answer",
-            "ariaLabel": ""
-        },
-        "_hideCorrectAnswer": {
-            "buttonText": "My Answer",
-            "ariaLabel": ""
-        },
-        "_showFeedback": {
-            "buttonText": "Show feedback",
-            "ariaLabel": ""
-        },
-        "remainingAttemptsText": "attempts remaining",
-        "remainingAttemptText": "final attempt"
-    },
-    "_pageLevelProgress": {
-        "_isEnabled": true
+    {
+      "text": "This is option 2.",
+      "_shouldBeSelected": false,
+      "_graphic": {
+        "alt": "Alt text for option 2",
+        "attribution": "Copyright © 2015",
+        "large": "course/en/images/gqcq-2-large.gif",
+        "small": "course/en/images/gqcq-2-small.gif"
+      }
     }
+  ],
+  "_feedback":{
+    "title": "Feedback",
+    "correct": "Congratulations, this is the correct feedback.",
+    "_incorrect": {
+      "notFinal": "",
+      "final": "Unfortunately this is the incorrect feedback."
+    },
+    "_partlyCorrect": {
+      "notFinal": "",
+      "final": "This is the partly correct feedback."
+    }
+  },
+  "_comment": "You only need to include _buttons if you want to override the button labels that are set in course.json",
+  "_buttons": {
+    "_submit": {
+      "buttonText": "Submit",
+      "ariaLabel": "Select here to submit your answer."
+    },
+    "_reset": {
+      "buttonText": "Reset",
+      "ariaLabel": ""
+    },
+    "_showCorrectAnswer": {
+      "buttonText": "Correct Answer",
+      "ariaLabel": ""
+    },
+    "_hideCorrectAnswer": {
+      "buttonText": "My Answer",
+      "ariaLabel": ""
+    },
+    "_showFeedback": {
+      "buttonText": "Show feedback",
+      "ariaLabel": ""
+    },
+    "remainingAttemptsText": "attempts remaining",
+    "remainingAttemptText": "final attempt"
+  },
+  "_pageLevelProgress": {
+    "_isEnabled": true
+  }
 }
