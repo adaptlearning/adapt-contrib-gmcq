@@ -83,6 +83,12 @@
       display: block;
     }
   }
+
+  &__widget.show-user-answer {
+    .gmcq__item:not(.is-correct):not(.is-incorrect) .is-selected .gmcq__item-answer-icon {
+      display: block;
+    }
+  }
   // --------------------------------------------------
 
   // --------------------------------------------------
@@ -91,6 +97,12 @@
   &__widget.show-correct-answer {
     .is-correct .is-selected .gmcq__item-correct-icon,
     .is-incorrect .is-selected .gmcq__item-correct-icon {
+      display: block;
+    }
+  }
+
+  &__widget.show-correct-answer {
+    .gmcq__item:not(.is-correct):not(.is-incorrect) .is-selected .gmcq__item-answer-icon {
       display: block;
     }
   }
