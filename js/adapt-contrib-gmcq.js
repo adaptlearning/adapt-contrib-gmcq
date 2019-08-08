@@ -29,14 +29,14 @@ define([
     },
 
     resizeImage: function(width) {
-        var imageWidth = width === 'medium' ? 'small' : width;
+      var imageWidth = width === 'medium' ? 'small' : width;
 
-        this.$('.js-item-label').each(function(index) {
-          var $img = $(this).find('img');
-          var newSrc = $img.attr('data-' + imageWidth);
-          if (!newSrc) return;
-          $img.attr('src', newSrc);
-        });
+      this.$('.js-item-label').each(function(index) {
+        var $img = $(this).find('img');
+        var newSrc = $img.attr('data-' + imageWidth);
+        if (!newSrc) return;
+        $img.attr('src', newSrc);
+      });
 
     },
 
