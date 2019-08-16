@@ -7,13 +7,13 @@
     {{#each _items}}
     <div class="gmcq__item js-mcq-item item-{{@index}} {{odd @index}}{{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}} is-correct{{else}} is-incorrect{{/if}}{{/if}}{{/unless}}">
 
-      <label class="gmcq__item-label js-item-label{{#unless ../_isEnabled}} is-disabled{{/unless}}{{#if _isSelected}} is-selected{{/if}}" aria-hidden="true" for="{{../_id}}-{{@index}}" data-adapt-index="{{_index}}" >
+      <label class="gmcq__item-label js-item-label{{#unless ../_isEnabled}} is-disabled{{/unless}}{{#if _isSelected}} is-selected{{/if}}{{#if _graphic.attribution}} has-attribution{{/if}}" aria-hidden="true" for="{{../_id}}-{{@index}}" data-adapt-index="{{_index}}" >
 
         <img class="gmcq__item-image" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}"{{else}}aria-hidden="true"{{/if}}>
 
         {{#if _graphic.attribution}}
-        <div class="gmcq__attribution attribution">
-          <div class="gmcq__attribution-inner">
+        <div class="component__attribution gmcq__attribution">
+          <div class="component__attribution-inner gmcq__attribution-inner">
             {{{_graphic.attribution}}}
           </div>
         </div>
