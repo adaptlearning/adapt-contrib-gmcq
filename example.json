@@ -5,6 +5,10 @@
         "_component": "gmcq",
         "_classes": "",
         "_layout": "full",
+        "title": "GMCQ",
+        "displayTitle": "GMCQ",
+        "body": "Which of the following options would you consider to be correct?",
+        "instruction": "",
         "_attempts": 1,
         "_shouldDisplayAttempts": false,
         "_questionWeight": 1,
@@ -15,17 +19,13 @@
         "_canShowMarking": true,
         "_recordInteraction": true,
         "_columns": 3,
-        "title": "GMCQ",
-        "displayTitle": "GMCQ",
-        "body": "Which of the following options would you consider to be correct?",
-        "instruction": "",
         "_items": [
             {
                 "text": "This is option 1.",
                 "_shouldBeSelected": true,
                 "_graphic": {
-                    "alt": "Alt text for option 1",
-                    "attribution": "Copyright © 2015",
+                    "alt": "Placeholder graphic",
+                    "attribution": "Copyright © 2019",
                     "large": "course/en/images/gqcq-1-large.gif",
                     "small": "course/en/images/gqcq-1-small.gif"
                 }
@@ -34,15 +34,15 @@
                 "text": "This is option 2.",
                 "_shouldBeSelected": false,
                 "_graphic": {
-                    "alt": "Alt text for option 2",
-                    "attribution": "Copyright © 2015",
+                    "alt": "",
+                    "attribution": "",
                     "large": "course/en/images/gqcq-2-large.gif",
                     "small": "course/en/images/gqcq-2-small.gif"
                 }
             }
         ],
         "_feedback":{
-            "title": "Feedback",
+            "title": "Feedback title",
             "correct": "Congratulations, this is the correct feedback.",
             "_incorrect": {
                 "notFinal": "",
