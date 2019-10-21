@@ -45,13 +45,10 @@ define([
 
       if (!columns) return;
 
-      if (Adapt.device.screenSize === 'large') {
-        this.$el.addClass('has-column-layout');
-        this.$('.js-mcq-item').css('width', (100 / columns) + '%');
-      } else {
-        this.$el.removeClass('has-column-layout');
-        this.$('.js-mcq-item').css('width', '');
-      }
+      var isLarge = Adapt.device.screenSize === 'large';
+
+      this.$el.toggleClass('has-column-layout', isLarge);
+      this.$('.js-mcq-item').css('width', isLarge ? (100 / columns) + '%' : '');
     }
 
   }, {
