@@ -15,5 +15,5 @@
   "pluginDependencies": {
     "adapt-contrib-mcq": ">=5"
   },
-  "license": "GPLv3"
+  "license": "GPL-3.0"
 }
