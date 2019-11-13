@@ -1,30 +1,57 @@
-<div class="gmcq-inner component-inner clearfix">
-    {{> component this}}
-    <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isInteractionComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
-        {{#each _items}}
-        <div class="gmcq-item component-item {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}correct{{else}}incorrect{{/if}}{{/if}}{{/unless}} item-{{@index}} {{odd @index}}">
-            <label aria-hidden="true" for="{{../_id}}-{{@index}}-input" class="component-item-color component-item-text-color component-item-border gmcq-item-container{{#unless ../_isEnabled}} disabled {{/unless}}{{#if _isSelected}} selected{{/if}}" data-adapt-index="{{_index}}" >
+<div class="component__inner gmcq__inner">
 
-                <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-label="{{_graphic.alt}}" />
-                {{#if _graphic.attribution}}
-                    <div class="graphic-attribution">{{{_graphic.attribution}}}</div>
-                {{/if}}
+  {{> component this}}
 
-                <div class="gmcq-item-checkbox">
-                    <div class="gmcq-item-state">
-                        <div class="gmcq-item-icon gmcq-answer-icon {{#if ../_isRadio}}radio{{else}}checkbox{{/if}} icon"></div>
-                        <div class="gmcq-item-icon gmcq-correct-icon icon icon-tick"></div>
-                        <div class="gmcq-item-icon gmcq-incorrect-icon icon icon-cross"></div>
-                    </div>
-                    <div class="gmcq-item-inner">
-                        {{{text}}}
-                    </div>
-                </div>
-            </label>
-            <input {{#if ../_isRadio}}name="{{../_id}}-item" {{/if}} type="{{#if ../_isRadio}}radio{{else}}checkbox{{/if}}" id="{{../_id}}-{{@index}}-input" {{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{{a11y_normalize text}}}" data-adapt-index="{{_index}}" />
+  <div class="component__widget gmcq__widget{{#unless _isEnabled}} is-disabled{{#if _isInteractionComplete}} is-complete is-submitted show-user-answer{{#if _isCorrect}} is-correct{{/if}}{{/if}}{{/unless}}" role="{{#if _isRadio}}radiogroup{{else}}group{{/if}}">
+
+    {{#each _items}}
+    <div class="gmcq__item js-mcq-item item-{{@index}} {{odd @index}}{{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}} is-correct{{else}} is-incorrect{{/if}}{{/if}}{{/unless}}">
+
+      <label class="gmcq__item-label js-item-label{{#unless ../_isEnabled}} is-disabled{{/unless}}{{#if _isSelected}} is-selected{{/if}}{{#if _graphic.attribution}} has-attribution{{/if}}" aria-hidden="true" for="{{../_id}}-{{@index}}" data-adapt-index="{{_index}}" >
+
+        <img class="gmcq__item-image" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}"{{else}}aria-hidden="true"{{/if}}>
+
+        {{#if _graphic.attribution}}
+        <div class="component__attribution gmcq__attribution">
+          <div class="component__attribution-inner gmcq__attribution-inner">
+            {{{_graphic.attribution}}}
+          </div>
         </div>
-        {{/each}}
+        {{/if}}
+
+        <div class="gmcq__item-option">
+
+          <div class="gmcq__item-state">
+            <div class="gmcq__item-icon gmcq__item-answer-icon{{#if ../_isRadio}} is-radio{{else}} is-checkbox{{/if}}">
+              <div class="icon"></div>
+            </div>
+            <div class="gmcq__item-icon gmcq__item-correct-icon">
+              <div class="icon"></div>
+            </div>
+            <div class="gmcq__item-icon gmcq__item-incorrect-icon">
+              <div class="icon"></div>
+            </div>
+          </div>
+
+          {{#if text}}
+          <div class="gmcq__item-text">
+            <div class="gmcq__item-text-inner">
+              {{{text}}}
+            </div>
+          </div>
+          {{/if}}
+
+        </div>
+
+      </label>
+
+      <input class="gmcq__item-input js-item-input" id="{{../_id}}-{{@index}}" {{#if ../_isRadio}}name="{{../_id}}-item" {{/if}} type="{{#if ../_isRadio}}radio{{else}}checkbox{{/if}}" {{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{{a11y_normalize text}}}" data-adapt-index="{{_index}}" />
+
     </div>
-    <div class="buttons">
-    </div>
+    {{/each}}
+
+  </div>
+
+  <div class="btn__container"></div>
+
 </div>
