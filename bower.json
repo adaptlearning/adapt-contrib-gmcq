@@ -13,7 +13,7 @@
     "adapt-component"
   ],
   "pluginDependencies": {
-    "adapt-contrib-mcq": ">=5"
+    "adapt-contrib-mcq": ">=4"
   },
   "license": "GPL-3.0"
 }
