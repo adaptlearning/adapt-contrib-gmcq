@@ -17,6 +17,7 @@
         "_canShowModelAnswer": true,
         "_canShowFeedback": true,
         "_canShowMarking": true,
+        "_onlyShowFinalMarking": false,
         "_recordInteraction": true,
         "_columns": 3,
         "_items": [
@@ -41,7 +42,7 @@
                 }
             }
         ],
-        "_feedback":{
+        "_feedback": {
             "title": "Feedback title",
             "correct": "Congratulations, this is the correct feedback.",
             "_incorrect": {
