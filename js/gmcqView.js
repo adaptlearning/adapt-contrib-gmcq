@@ -7,10 +7,7 @@ class GmcqView extends McqView {
   }
 
   onQuestionRendered() {
-    this.$('.js-item-label').imageready(() => {
-      this.setReadyStatus();
-    });
-
+    this.$('.js-item-label').imageready(() => this.setReadyStatus());
   }
 
 }
