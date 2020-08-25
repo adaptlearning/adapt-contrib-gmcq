@@ -77,8 +77,8 @@ export default function(model, view) {
               />
 
               {_graphic.attribution &&
-              <div className='component__attribution graphic__attribution'>
-                <div className='component__attribution-inner graphic__attribution-inner'>
+              <div className='component__attribution gmcq__attribution'>
+                <div className='component__attribution-inner gmcq__attribution-inner'>
                   {html(_graphic.attribution)}
                 </div>
               </div>
