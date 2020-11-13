@@ -285,8 +285,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 },
                 "ariaLabel": {
                   "type": "string",
@@ -295,8 +294,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 }
               }
             },
@@ -312,8 +310,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 },
                 "ariaLabel": {
                   "type": "string",
@@ -322,8 +319,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 }
               }
             },
@@ -339,8 +335,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 },
                 "ariaLabel": {
                   "type": "string",
@@ -349,8 +344,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 }
               }
             },
@@ -366,8 +360,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 },
                 "ariaLabel": {
                   "type": "string",
@@ -376,8 +369,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 }
               }
             },
@@ -393,8 +385,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 },
                 "ariaLabel": {
                   "type": "string",
@@ -403,8 +394,7 @@
                   "default": "",
                   "_adapt": {
                     "translatable": true
-                  },
-                  "_backboneForms": "QuestionButton"
+                  }
                 }
               }
             },
@@ -415,8 +405,7 @@
               "default": "",
               "_adapt": {
                 "translatable": true
-              },
-              "_backboneForms": "QuestionButton"
+              }
             },
             "remainingAttemptText": {
               "type": "string",
@@ -425,8 +414,7 @@
               "default": "",
               "_adapt": {
                 "translatable": true
-              },
-              "_backboneForms": "QuestionButton"
+              }
             }
           }
         }
