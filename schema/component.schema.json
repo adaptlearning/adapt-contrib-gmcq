@@ -115,12 +115,7 @@
           "type": "number",
           "title": "Attempts",
           "description": "How many attempts the learner is allowed",
-          "default": 1,
-          "_backboneForms": {
-            "validators": [
-              "number"
-            ]
-          }
+          "default": 1
         },
         "_canShowModelAnswer": {
           "type": "boolean",
@@ -153,12 +148,7 @@
           "type": "number",
           "title": "Question Weight",
           "description": "How much this question is worth",
-          "default": 1,
-          "_backboneForms": {
-            "validators": [
-              "number"
-            ]
-          }
+          "default": 1
         },
         "_recordInteraction": {
           "type": "boolean",
@@ -170,23 +160,13 @@
           "type": "number",
           "title": "Columns",
           "description": "Set the number of columns. If value is '0', component uses the default layout.",
-          "default": 0,
-          "_backboneForms": {
-            "validators": [
-              "number"
-            ]
-          }
+          "default": 0
         },
         "_selectable": {
           "type": "number",
           "title": "Selectable Items",
           "description": "How many items are selectable",
-          "default": 1,
-          "_backboneForms": {
-            "validators": [
-              "number"
-            ]
-          }
+          "default": 1
         },
         "_feedback": {
           "type": "object",
