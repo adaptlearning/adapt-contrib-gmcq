@@ -65,7 +65,7 @@
                 "default": "",
                 "inputType": "Text",
                 "validators": [],
-                "help": "Alternative text for the image",
+                "help": "A description of the image; required when it has meaning that must be conveyed to the learner. Avoid duplication if the item text already provides context and leave blank.",
                 "translatable": true
               },
               "attribution": {
