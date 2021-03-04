@@ -55,7 +55,7 @@ define([
     template: 'gmcq'
   });
 
-  return Adapt.register('gmcq', {
+  return Adapt.register("gmcq", {
     view: Gmcq,
     model: Mcq.model.extend({})
   });
