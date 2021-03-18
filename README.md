@@ -106,8 +106,11 @@ contains values for three types of answers: **correct**, **\_incorrect**, and **
 If you don't need this component to display a different image for large/small screen sizes, you can use **src** (instead of **large** and **small**) to specify an image that will be displayed for all screen sizes.  
 
 ## Accessibility
-**Graphical Multiple Choice Question** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This
-label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/properties.schema).   
+**Graphical Multiple Choice Question** has been assigned a descriptive label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**.  
+
+When **Graphical Multiple Choice Question** is used with Adapt Framework v5.12.0 (or better), it supports announcing the correct/learner answer to screen readers (via an an [ARIA Live Region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)) when the Correct Answer button is toggled by the learner. The following attributes are used to provide this functionality: **ariaCorrectAnswer**, **ariaCorrectAnswers**, **ariaUserAnswer**, **ariaUserAnswers**.
+
+These ARIA labels are not visible elements; they are used by assistive technology (such as screen readers). Should any of these labels need to be customised or translated, they can be found within the `_globals._components._gmcq` object in **course.json** (or Project settings > Globals in the Adapt Authoring Tool).  
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ## Limitations
