@@ -24,7 +24,7 @@
                 "text": "This is option 1.",
                 "_shouldBeSelected": true,
                 "_graphic": {
-                    "alt": "Placeholder graphic",
+                    "alt": "",
                     "attribution": "Copyright © 2019",
                     "large": "course/en/images/gqcq-1-large.gif",
                     "small": "course/en/images/gqcq-1-small.gif"
