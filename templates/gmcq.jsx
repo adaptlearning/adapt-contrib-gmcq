@@ -36,7 +36,7 @@ export default function GMcq(props) {
           !_isEnabled && 'is-disabled',
           _isInteractionComplete && 'is-complete is-submitted show-user-answer',
           _isCorrect && 'is-correct',
-          (_columns && screenSize === 'large') ? 'has-column-layout' : null
+          _columns && screenSize === 'large' && 'has-column-layout'
         ])}
         role={_isRadio ? 'radiogroup' : 'group'}
       >
