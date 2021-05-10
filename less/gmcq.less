@@ -32,7 +32,6 @@
     display: none;
   }
 
-  // --------------------------------------------------
   // GMCQ item icons
   // --------------------------------------------------
   &__item-answer-icon.is-radio .icon {
@@ -43,16 +42,12 @@
     .icon-checkbox-unchecked;
   }
 
-  &__item-label.is-selected {
-    .gmcq__item-answer-icon.is-radio .icon {
-      .icon-radio-checked;
-    }
+  &__item-label.is-selected &__item-answer-icon.is-radio .icon {
+    .icon-radio-checked;
   }
 
-  &__item-label.is-selected {
-    .gmcq__item-answer-icon.is-checkbox .icon {
-      .icon-checkbox-checked;
-    }
+  &__item-label.is-selected &__item-answer-icon.is-checkbox .icon {
+    .icon-checkbox-checked;
   }
 
   &__item-correct-icon .icon {
@@ -62,49 +57,32 @@
   &__item-incorrect-icon .icon {
     .icon-cross;
   }
-  // --------------------------------------------------
 
-  // --------------------------------------------------
   // Class to show the selection icons until the component is complete
   // --------------------------------------------------
-  &__widget:not(.is-complete) {
-    .gmcq__item-answer-icon {
-      display: block;
-    }
+  &__widget:not(.is-complete) &__item-answer-icon {
+    display: block;
   }
-  // --------------------------------------------------
 
-  // --------------------------------------------------
   // Class to show the users selection
   // --------------------------------------------------
-  &__widget.show-user-answer {
-    .is-correct .is-selected .gmcq__item-correct-icon,
-    .is-incorrect .is-selected .gmcq__item-incorrect-icon {
-      display: block;
-    }
+  &__widget.show-user-answer .is-correct .is-selected &__item-correct-icon,
+  &__widget.show-user-answer .is-incorrect .is-selected &__item-incorrect-icon {
+    display: block;
   }
 
-  &__widget.show-user-answer {
-    .gmcq__item:not(.is-correct):not(.is-incorrect) .is-selected .gmcq__item-answer-icon {
-      display: block;
-    }
+  &__widget.show-user-answer &__item:not(.is-correct):not(.is-incorrect) .is-selected &__item-answer-icon {
+    display: block;
   }
-  // --------------------------------------------------
 
-  // --------------------------------------------------
   // Class to show the correct answers
   // --------------------------------------------------
-  &__widget.show-correct-answer {
-    .is-correct .is-selected .gmcq__item-correct-icon,
-    .is-incorrect .is-selected .gmcq__item-correct-icon {
-      display: block;
-    }
+  &__widget.show-correct-answer .is-correct .is-selected &__item-correct-icon,
+  &__widget.show-correct-answer .is-incorrect .is-selected &__item-correct-icon {
+    display: block;
   }
 
-  &__widget.show-correct-answer {
-    .gmcq__item:not(.is-correct):not(.is-incorrect) .is-selected .gmcq__item-answer-icon {
-      display: block;
-    }
+  &__widget.show-correct-answer &__item:not(.is-correct):not(.is-incorrect) .is-selected &__item-answer-icon {
+    display: block;
   }
-  // --------------------------------------------------
 }
