@@ -142,6 +142,15 @@
             "validators": [],
             "help": "When 'Selectable Items' is set to 1, this can be used to give the user feedback specific to the answer they selected - if incorrect.",
             "translatable": true
+          },
+          "_score": {
+            "type": "number",
+            "required": false,
+            "default": 0,
+            "title": "Attempts",
+            "inputType": "Number",
+            "validators": ["required", "number"],
+            "help": "If 'Item Scoring' is enabled, when selected, item scores are summed to give the question score."
           }
         }
       }
@@ -196,6 +205,15 @@
       "inputType": "Checkbox",
       "validators": []
     },
+    "_isItemScoring": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Item Scoring",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "When disabled, this question scores 0 for incorrect and 'Question Weight' for correct. When enabled, this question scores by summing the scores of the selected options."
+    },
     "_questionWeight": {
       "type": "number",
       "required": false,
@@ -203,7 +221,7 @@
       "title": "Question Weight",
       "inputType": "Number",
       "validators": ["number"],
-      "help": "How much this question is worth"
+      "help": "When 'Item Scoring' is disabled, this is the question score for a correct response."
     },
     "_recordInteraction": {
       "type": "boolean",
