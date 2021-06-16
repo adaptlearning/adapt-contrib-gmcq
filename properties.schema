@@ -205,7 +205,7 @@
       "inputType": "Checkbox",
       "validators": []
     },
-    "_isItemScoring": {
+    "_hasItemScoring": {
       "type": "boolean",
       "required": false,
       "default": false,

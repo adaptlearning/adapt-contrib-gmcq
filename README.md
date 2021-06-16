@@ -49,9 +49,9 @@ guide the learner’s interaction with the component.
 
 **\_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) attribute group. The default is `false`.  
 
-**\_isItemScoring** (boolean): When `false`, this question scores 0 for incorrect and 'Question Weight' for correct. When `true`, this question scores by summing the `_score` of the selected items.  
+**\_hasItemScoring** (boolean): When `false`, this question scores 0 for incorrect and 'Question Weight' for correct. When `true`, this question scores by summing the `_score` of the selected items.  
 
-**\_questionWeight** (number): When '_isItemScoring' is `false`, this is the question score for a correct response. This number is used in calculations of the final score reported to the LMS.  
+**\_questionWeight** (number): When '_hasItemScoring' is `false`, this is the question score for a correct response. This number is used in calculations of the final score reported to the LMS.  
 
 **\_isRandom** (boolean): Setting this value to `true` will cause the **\_items** to appear in a random order each time the component is loaded. The default is `false`.  
 

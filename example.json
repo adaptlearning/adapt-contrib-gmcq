@@ -11,7 +11,7 @@
         "instruction": "",
         "_attempts": 1,
         "_shouldDisplayAttempts": false,
-        "_isItemScoring": false,
+        "_hasItemScoring": false,
         "_questionWeight": 1,
         "_isRandom": false,
         "_selectable": 1,
