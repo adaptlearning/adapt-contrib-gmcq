@@ -147,10 +147,10 @@
             "type": "number",
             "required": false,
             "default": 0,
-            "title": "Attempts",
+            "title": "Score",
             "inputType": "Number",
             "validators": ["required", "number"],
-            "help": "If 'Item Scoring' is enabled, when selected, item scores are summed to give the question score."
+            "help": "If item scoring is enabled, when selected, item scores are summed to give the question score."
           }
         }
       }
@@ -209,7 +209,7 @@
       "type": "boolean",
       "required": false,
       "default": false,
-      "title": "Item Scoring",
+      "title": "Enable item scoring",
       "inputType": "Checkbox",
       "validators": [],
       "help": "When disabled, this question scores 0 for incorrect and 'Question Weight' for correct. When enabled, this question scores by summing the scores of the selected options."
@@ -221,7 +221,7 @@
       "title": "Question Weight",
       "inputType": "Number",
       "validators": ["number"],
-      "help": "When 'Item Scoring' is disabled, this is the question score for a correct response."
+      "help": "When item scoring is disabled, this is the question score for a correct response."
     },
     "_recordInteraction": {
       "type": "boolean",
