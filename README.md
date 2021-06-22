@@ -85,7 +85,7 @@ guide the learner’s interaction with the component.
 
 >>**attribution** (string): Optional text to be displayed as an [attribution](https://wiki.creativecommons.org/Best_practices_for_attribution). By default it is displayed below the image. Adjust positioning by modifying CSS. Text can contain HTML tags, e.g., `Copyright © 2015 by <b>Lukasz 'Severiaan' Grela</b>`.
 
->**\_score** (boolean): If `_hasItemScoring` is `true`, when selected, item scores are summed to give the question score.  
+>**\_score** (number): If `_hasItemScoring` is `true`, when selected, item scores are summed to give the question score.  
 
 **\_feedback** (object): If the [**Tutor** extension](https://github.com/adaptlearning/adapt-contrib-tutor) is enabled, these various texts will be displayed depending on the submitted answer. **\_feedback**
 contains values for three types of answers: **correct**, **\_incorrect**, and **\_partlyCorrect**. Some attributes are optional. If they are not supplied, the default that is noted below will be used.
