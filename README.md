@@ -49,7 +49,9 @@ guide the learner’s interaction with the component.
 
 **\_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) attribute group. The default is `false`.  
 
-**\_questionWeight** (number): A number which reflects the significance of the question in relation to the other questions in the course. This number is used in calculations of the final score reported to the LMS.
+**\_hasItemScoring** (boolean): When `false`, this question scores 0 for incorrect and `_questionWeight` for correct. When `true`, this question scores by summing the `_score` of the selected items.  
+
+**\_questionWeight** (number): When `_hasItemScoring` is `false`, this is the question score for a correct response. This number is used in calculations of the final score reported to the LMS.  
 
 **\_isRandom** (boolean): Setting this value to `true` will cause the **\_items** to appear in a random order each time the component is loaded. The default is `false`.  
 
@@ -82,6 +84,8 @@ guide the learner’s interaction with the component.
 >>**alt** (string): The alternative text for this image. Assign [alt text](https://github.com/adaptlearning/adapt_framework/wiki/Providing-good-alt-text) to images that convey course content only. Avoid duplication if the item **text** already provides context and leave blank.
 
 >>**attribution** (string): Optional text to be displayed as an [attribution](https://wiki.creativecommons.org/Best_practices_for_attribution). By default it is displayed below the image. Adjust positioning by modifying CSS. Text can contain HTML tags, e.g., `Copyright © 2015 by <b>Lukasz 'Severiaan' Grela</b>`.
+
+>**\_score** (number): If `_hasItemScoring` is `true`, when selected, item scores are summed to give the question score.  
 
 **\_feedback** (object): If the [**Tutor** extension](https://github.com/adaptlearning/adapt-contrib-tutor) is enabled, these various texts will be displayed depending on the submitted answer. **\_feedback**
 contains values for three types of answers: **correct**, **\_incorrect**, and **\_partlyCorrect**. Some attributes are optional. If they are not supplied, the default that is noted below will be used.
@@ -118,7 +122,7 @@ These ARIA labels are not visible elements; they are used by assistive technolog
 No known limitations.
 
 ----------------------------
-**Version number:**  5.1.0   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a>  
+**Version number:**  5.2.0   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a>  
 **Framework versions:** 5+  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-gmcq/graphs/contributors)  
 **Accessibility support:** WAI AA  
