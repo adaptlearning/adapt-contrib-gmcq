@@ -99,6 +99,11 @@
                 "title": "Mark this option as correct",
                 "default": false
               },
+              "_isPartlyCorrect": {
+                "type": "boolean",
+                "title": "Mark this option as partly correct",
+                "default": false
+              },
               "feedback": {
                 "type": "string",
                 "title": "Answer-specific feedback",
@@ -107,6 +112,12 @@
                 "_adapt": {
                   "translatable": true
                 }
+              },
+              "_score": {
+                "type": "number",
+                "title": "Score",
+                "description": "If item scoring is enabled, selected item scores are summed to give the question score",
+                "default": 0
               }
             }
           }
@@ -143,10 +154,16 @@
           "title": "Randomise answers",
           "default": false
         },
+        "_hasItemScoring": {
+          "type": "boolean",
+          "title": "Enable item scoring",
+          "description": "When disabled, this question scores 0 for incorrect and 'Question weight' for correct. When enabled, this question scores by summing the scores of the selected options",
+          "default": false
+        },
         "_questionWeight": {
           "type": "number",
           "title": "Question weight",
-          "description": "How much this question is worth",
+          "description": "When item scoring is disabled, this is the question score for a correct response",
           "default": 1
         },
         "_recordInteraction": {
