@@ -57,7 +57,7 @@ define([
       var canShowMarking = this.model.get('_canShowMarking');
       var ariaLabels = Adapt.course.get('_globals')._accessibility._ariaLabels;
 
-      this.model.getChildren().each(function (itemModel) {
+      this.model.getChildren().forEach(function(itemModel) {
 
         var index = itemModel.get('_index');
         var $itemInput = this.$('.js-item-input').filter('[data-adapt-index="' + index + '"]');
