@@ -93,7 +93,7 @@ define([
           $.a11y_normalize(itemModel.get('_graphic').alt)
         ].join(''));
 
-      }.bind(this));
+      }, this);
     }
 
   }, {
