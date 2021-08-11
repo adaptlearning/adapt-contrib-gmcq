@@ -67,9 +67,9 @@ define([
           // Remove item marking
           $item.removeClass('is-correct is-incorrect');
           $itemInput.attr('aria-label', [
-            $.a11y_normalize(itemModel.get('text')),
+            Adapt.a11y.normalize(itemModel.get('text')),
             '. ',
-            $.a11y_normalize(itemModel.get('_graphic').alt)
+            Adapt.a11y.normalize(itemModel.get('_graphic').alt)
           ].join(''));
           return;
         }
