@@ -51,7 +51,7 @@ define([
       this.$('.js-mcq-item').css('width', isLarge ? (100 / columns) + '%' : '');
     },
 
-    updateMarking: function () {
+    updateMarking: function() {
 
       var isInteractive = this.model.isInteractive();
       var canShowMarking = this.model.get('_canShowMarking');
