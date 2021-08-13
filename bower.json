@@ -5,6 +5,7 @@
   "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
   "issues": "https://github.com/adaptlearning/adapt_framework/issues/new",
   "component" : "gmcq",
+  "targetAttribute": "_gmcq",
   "displayName" : "Graphical Multiple Choice Question",
   "description": "A multiple choice question component, with images",
   "main": "/js/adapt-contrib-gmcq.js",
