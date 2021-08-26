@@ -2,7 +2,7 @@ import Adapt from 'core/js/adapt';
 import React from 'react';
 import { templates, classes, html, compile } from 'core/js/reactHelpers';
 
-export default function GMcq(props) {
+export default function Gmcq(props) {
   const ariaLabels = Adapt.course.get('_globals')._accessibility._ariaLabels;
 
   const {
