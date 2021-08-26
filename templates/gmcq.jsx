@@ -66,7 +66,7 @@ export default function GMcq(props) {
               type={_isRadio ? 'radio' : 'checkbox'}
               disabled={!_isEnabled}
               aria-label={!shouldShowMarking ?
-                Adapt.a11y.normalize(text) :
+                `${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}` :
                 `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
