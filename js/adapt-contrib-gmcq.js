@@ -1,6 +1,6 @@
 import Adapt from 'core/js/adapt';
-import GmcqView from './gmcqView';
-import GmcqModel from './gmcqModel';
+import GmcqView from './GmcqView';
+import GmcqModel from './GmcqModel';
 
 export default Adapt.register('gmcq', {
   model: GmcqModel,
