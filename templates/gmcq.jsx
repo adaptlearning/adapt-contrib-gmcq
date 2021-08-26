@@ -14,6 +14,9 @@ export default function GMcq(props) {
     _canShowMarking,
     _isRadio,
     _columns,
+    displayTitle,
+    body,
+    instruction,
     onKeyPress,
     onItemSelect,
     onItemFocus,
@@ -39,6 +42,7 @@ export default function GMcq(props) {
           _columns && screenSize === 'large' && 'has-column-layout'
         ])}
         role={_isRadio ? 'radiogroup' : 'group'}
+        aria-labelledby={(displayTitle || body || instruction) && `${_id}-header`}
       >
 
         {props._items.map(({ text, _index, _isActive, _shouldBeSelected, _graphic }, index) =>
@@ -63,7 +67,7 @@ export default function GMcq(props) {
               disabled={!_isEnabled}
               aria-label={!shouldShowMarking ?
                 Adapt.a11y.normalize(text) :
-                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)}`}
+                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
               onChange={onItemSelect}
