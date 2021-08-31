@@ -1,4 +1,4 @@
-import McqView from 'components/adapt-contrib-mcq/js/mcqView';
+import McqView from 'components/adapt-contrib-mcq/js/McqView';
 
 class GmcqView extends McqView {
 
