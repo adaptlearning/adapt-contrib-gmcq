@@ -25,7 +25,7 @@ export default function Gmcq(props) {
   } = props;
 
   const screenSize = Adapt.device.screenSize;
-  const shouldShowMarking = isInteractive() && _canShowMarking;
+  const shouldShowMarking = !isInteractive() && _canShowMarking;
 
   return (
     <div className='component__inner gmcq__inner'>
