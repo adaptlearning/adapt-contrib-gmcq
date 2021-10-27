@@ -73,6 +73,8 @@ guide the learner’s interaction with the component.
 
 >**\_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **\_selectable** must correspond to the number of **\_items** where **\_shouldBeSelected** is set to `true`. 
 
+>**\_isPartlyCorrect** (boolean): Determines whether the *item* when selected marks the question as partly correct. Value can be `true` or `false`. Default is `false`.  
+
 >**feedback** (string): This attribute is used only when the value for **\_selectable** is set to `1` (i.e., radio button style questions). This text will be shown if the learner selects this item, and it is an incorrect answer. 
 
 >**\_graphic** (object): The image that appears as a possible answer. It contains values for **large**, **small**, **alt**, and **title**. 
