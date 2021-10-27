@@ -24,6 +24,7 @@
             {
                 "text": "This is option 1.",
                 "_shouldBeSelected": true,
+                "_isPartlyCorrect": false,
                 "_graphic": {
                     "alt": "",
                     "attribution": "Copyright © 2019",
@@ -34,6 +35,7 @@
             {
                 "text": "This is option 2.",
                 "_shouldBeSelected": false,
+                "_isPartlyCorrect": false,
                 "_graphic": {
                     "alt": "",
                     "attribution": "",
