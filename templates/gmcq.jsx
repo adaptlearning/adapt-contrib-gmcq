@@ -49,7 +49,7 @@ export default function Gmcq(props) {
 
           <div
             className={classes([
-              `gmcq__item item-${index}`,
+              `gmcq-item item-${index}`,
               (shouldShowMarking && _shouldBeSelected) ? 'is-correct' : null,
               (shouldShowMarking && !_shouldBeSelected) ? 'is-incorrect' : null
             ])}
@@ -60,7 +60,7 @@ export default function Gmcq(props) {
           >
 
             <input
-              className='gmcq__item-input'
+              className='gmcq-item__input'
               id={`${_id}-${index}-input`}
               name={_isRadio ? `${_id}-item` : null}
               type={_isRadio ? 'radio' : 'checkbox'}
@@ -77,7 +77,7 @@ export default function Gmcq(props) {
 
             <label
               className={classes([
-                'gmcq__item-label',
+                'gmcq-item__label',
                 'js-item-label',
                 !_isEnabled && 'is-disabled',
                 (_isCorrectAnswerShown ? _shouldBeSelected : _isActive) && 'is-selected'
@@ -88,17 +88,17 @@ export default function Gmcq(props) {
             >
 
               <templates.image {..._graphic}
-                classNamePrefixes={['gmcq__item']}
+                classNamePrefixes={['gmcq-item']}
                 attributionClassNamePrefixes={['component', 'gmcq']}
               />
 
-              <div className='gmcq__item-option'>
+              <div className='gmcq-item__option'>
 
-                <div className='gmcq__item-state'>
+                <div className='gmcq-item__state'>
                   <div
                     className={classes([
-                      'gmcq__item-icon',
-                      'gmcq__item-answer-icon',
+                      'gmcq-item__icon',
+                      'gmcq-item__answer-icon',
                       _isRadio ? 'is-radio' : 'is-checkbox'
                     ])}
                   >
@@ -107,18 +107,18 @@ export default function Gmcq(props) {
 
                   </div>
 
-                  <div className='gmcq__item-icon gmcq__item-correct-icon'>
+                  <div className='gmcq-item__icon gmcq-item__correct-icon'>
                     <div className='icon'></div>
                   </div>
 
-                  <div className='gmcq__item-icon gmcq__item-incorrect-icon'>
+                  <div className='gmcq-item__icon gmcq-item__incorrect-icon'>
                     <div className='icon'></div>
                   </div>
                 </div>
 
                 {text &&
-                <div className='gmcq__item-text'>
-                  <div className='gmcq__item-text-inner'>
+                <div className='gmcq-item__text'>
+                  <div className='gmcq-item__text-inner'>
                     {html(compile(text))}
                   </div>
                 </div>
