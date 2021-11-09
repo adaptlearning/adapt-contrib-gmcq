@@ -55,7 +55,7 @@ guide the learner’s interaction with the component.
 
 **\_isRandom** (boolean): Setting this value to `true` will cause the **\_items** to appear in a random order each time the component is loaded. The default is `false`.  
 
-**\_selectable** (number): Defines the number of **\_items**, or answers, that can be selected. If the value of **\_selectable** is `1`, **\_items** will be presented with HTML radio buttons. If the value is greater than `1`, they will be presented with HTML checkboxes. This number must match or exceed the number of **\_items** whose **_shouldBeSelected** is set to `true`. The default is `1`.
+**\_selectable** (number): Defines the number of **\_items**, or answers, that can be selected. If the value of **\_selectable** is `1`, **\_items** will be presented with HTML radio buttons. If the value is greater than `1`, they will be presented with HTML checkboxes. This number can be smaller, match or exceed the number of **\_items** whose **_shouldBeSelected** is set to `true`. The default is `1`.
 
 **\_canShowModelAnswer** (boolean): Setting this to `false` prevents the [**\_showCorrectAnswer** button](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) from being displayed. The default is `true`.
 
@@ -71,7 +71,7 @@ guide the learner’s interaction with the component.
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  
 
->**\_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **\_selectable** must correspond to the number of **\_items** where **\_shouldBeSelected** is set to `true`. 
+>**\_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **\_selectable** can be smaller, match or exceed the number of **\_items** where **\_shouldBeSelected** is set to `true`. 
 
 >**\_isPartlyCorrect** (boolean): Determines whether the *item* when selected marks the question as partly correct. Value can be `true` or `false`. Default is `false`.  
 
