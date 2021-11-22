@@ -1,6 +1,6 @@
 {
   "name": "adapt-contrib-gmcq",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "framework": ">=5.14.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
   "bugs": "https://github.com/adaptlearning/adapt-contrib-gmcq/issues",
