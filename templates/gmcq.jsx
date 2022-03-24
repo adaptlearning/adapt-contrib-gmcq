@@ -1,4 +1,6 @@
 import Adapt from 'core/js/adapt';
+import a11y from 'core/js/a11y';
+import device from 'core/js/device';
 import React from 'react';
 import { templates, classes, compile } from 'core/js/reactHelpers';
 
@@ -23,7 +25,7 @@ export default function Gmcq(props) {
     onItemBlur
   } = props;
 
-  const screenSize = Adapt.device.screenSize;
+  const screenSize = device.screenSize;
 
   return (
     <div className='component__inner gmcq__inner'>
@@ -64,8 +66,8 @@ export default function Gmcq(props) {
               type={_isRadio ? 'radio' : 'checkbox'}
               disabled={!_isEnabled}
               aria-label={!_shouldShowMarking ?
-                `${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}` :
-                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
+                `${a11y.normalize(text)} ${_graphic?.alt || ''}` :
+                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
               onChange={onItemSelect}
