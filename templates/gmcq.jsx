@@ -71,7 +71,7 @@ export default function Gmcq(props) {
                 `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
-              onChange={onItemSelect}
+              onClick={onItemSelect}
               onFocus={onItemFocus}
               onBlur={onItemBlur}
             />
