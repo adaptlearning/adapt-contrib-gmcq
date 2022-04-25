@@ -74,7 +74,7 @@ export default function Gmcq(props) {
               onClick={onItemSelect}
               onFocus={onItemFocus}
               onBlur={onItemBlur}
-              readOnly={true}
+              onChange={() => {}}
             />
 
             <label
