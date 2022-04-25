@@ -65,7 +65,7 @@ export default function Gmcq(props) {
               name={_isRadio ? `${_id}-item` : null}
               type={_isRadio ? 'radio' : 'checkbox'}
               disabled={!_isEnabled}
-              checked={_isActive}
+              defaultChecked={_isActive}
               aria-label={!shouldShowMarking ?
                 `${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}` :
                 `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
@@ -74,7 +74,6 @@ export default function Gmcq(props) {
               onClick={onItemSelect}
               onFocus={onItemFocus}
               onBlur={onItemBlur}
-              onChange={() => {}}
             />
 
             <label
