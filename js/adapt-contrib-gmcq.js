@@ -1,8 +1,8 @@
-import Adapt from 'core/js/adapt';
+import components from 'core/js/components';
 import GmcqView from './GmcqView';
 import GmcqModel from './GmcqModel';
 
-export default Adapt.register('gmcq', {
+export default components.register('gmcq', {
   model: GmcqModel,
   view: GmcqView
 });

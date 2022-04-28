@@ -1,6 +1,8 @@
 import Adapt from 'core/js/adapt';
+import a11y from 'core/js/a11y';
+import device from 'core/js/device';
 import React from 'react';
-import { templates, classes, html, compile } from 'core/js/reactHelpers';
+import { templates, classes, compile } from 'core/js/reactHelpers';
 
 export default function Gmcq(props) {
   const ariaLabels = Adapt.course.get('_globals')._accessibility._ariaLabels;
@@ -11,7 +13,7 @@ export default function Gmcq(props) {
     _isInteractionComplete,
     _isCorrect,
     _isCorrectAnswerShown,
-    _canShowMarking,
+    _shouldShowMarking,
     _isRadio,
     _columns,
     displayTitle,
@@ -20,12 +22,10 @@ export default function Gmcq(props) {
     onKeyPress,
     onItemSelect,
     onItemFocus,
-    onItemBlur,
-    isInteractive
+    onItemBlur
   } = props;
 
-  const screenSize = Adapt.device.screenSize;
-  const shouldShowMarking = !isInteractive() && _canShowMarking;
+  const screenSize = device.screenSize;
 
   return (
     <div className='component__inner gmcq__inner'>
@@ -50,8 +50,8 @@ export default function Gmcq(props) {
           <div
             className={classes([
               `gmcq-item item-${index}`,
-              (shouldShowMarking && _shouldBeSelected) ? 'is-correct' : null,
-              (shouldShowMarking && !_shouldBeSelected) ? 'is-incorrect' : null
+              (_shouldShowMarking && _shouldBeSelected) ? 'is-correct' : null,
+              (_shouldShowMarking && !_shouldBeSelected) ? 'is-incorrect' : null
             ])}
             style={(_columns && screenSize === 'large') ?
               { width: `${100 / _columns}%` } :
@@ -66,9 +66,9 @@ export default function Gmcq(props) {
               type={_isRadio ? 'radio' : 'checkbox'}
               disabled={!_isEnabled}
               defaultChecked={_isActive}
-              aria-label={!shouldShowMarking ?
-                `${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}` :
-                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${Adapt.a11y.normalize(text)} ${_graphic?.alt || ''}`}
+              aria-label={!_shouldShowMarking ?
+                `${a11y.normalize(text)} ${_graphic?.alt || ''}` :
+                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
               onChange={onItemSelect}
@@ -119,8 +119,7 @@ export default function Gmcq(props) {
 
                 {text &&
                 <div className='gmcq-item__text'>
-                  <div className='gmcq-item__text-inner'>
-                    {html(compile(text))}
+                  <div className='gmcq-item__text-inner' dangerouslySetInnerHTML={{ __html: compile(text) }}>
                   </div>
                 </div>
                 }
