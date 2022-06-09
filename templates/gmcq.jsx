@@ -19,6 +19,7 @@ export default function Gmcq(props) {
     displayTitle,
     body,
     instruction,
+    ariaQuestion,
     onKeyPress,
     onItemSelect,
     onItemFocus,
@@ -42,7 +43,8 @@ export default function Gmcq(props) {
           _columns && screenSize === 'large' && 'has-column-layout'
         ])}
         role={_isRadio ? 'radiogroup' : 'group'}
-        aria-labelledby={(displayTitle || body || instruction) && `${_id}-header`}
+        aria-labelledby={ariaQuestion ? null : (displayTitle || body || instruction) && `${_id}-header`}
+        aria-label={ariaQuestion || null}
       >
 
         {props._items.map(({ text, _index, _isActive, _shouldBeSelected, _graphic }, index) =>

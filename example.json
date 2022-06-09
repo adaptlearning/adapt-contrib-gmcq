@@ -9,6 +9,7 @@
         "displayTitle": "GMCQ",
         "body": "Which of the following options would you consider to be correct?",
         "instruction": "",
+        "ariaQuestion": "",
         "_attempts": 1,
         "_shouldDisplayAttempts": false,
         "_hasItemScoring": false,
