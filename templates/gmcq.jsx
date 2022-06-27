@@ -95,10 +95,10 @@ export default function Gmcq(props) {
                 attributionClassNamePrefixes={['component', 'gmcq']}
               />
 
-              <div className='gmcq-item__option'>
+              <span className='gmcq-item__option'>
 
-                <div className='gmcq-item__state'>
-                  <div
+                <span className='gmcq-item__state'>
+                  <span
                     className={classes([
                       'gmcq-item__icon',
                       'gmcq-item__answer-icon',
@@ -106,27 +106,27 @@ export default function Gmcq(props) {
                     ])}
                   >
 
-                    <div className='icon'></div>
+                    <span className='icon'></span>
 
-                  </div>
+                  </span>
 
-                  <div className='gmcq-item__icon gmcq-item__correct-icon'>
-                    <div className='icon'></div>
-                  </div>
+                  <span className='gmcq-item__icon gmcq-item__correct-icon'>
+                    <span className='icon'></span>
+                  </span>
 
-                  <div className='gmcq-item__icon gmcq-item__incorrect-icon'>
-                    <div className='icon'></div>
-                  </div>
-                </div>
+                  <span className='gmcq-item__icon gmcq-item__incorrect-icon'>
+                    <span className='icon'></span>
+                  </span>
+                </span>
 
                 {text &&
-                <div className='gmcq-item__text'>
-                  <div className='gmcq-item__text-inner' dangerouslySetInnerHTML={{ __html: compile(text) }}>
-                  </div>
-                </div>
+                <span className='gmcq-item__text'>
+                  <span className='gmcq-item__text-inner' dangerouslySetInnerHTML={{ __html: compile(text) }}>
+                  </span>
+                </span>
                 }
 
-              </div>
+              </span>
 
             </label>
 
