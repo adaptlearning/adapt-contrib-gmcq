@@ -82,6 +82,7 @@ export default function Gmcq(props) {
               className={classes([
                 'gmcq-item__label',
                 'js-item-label',
+                'u-no-select',
                 !_isEnabled && 'is-disabled',
                 (_isCorrectAnswerShown ? _shouldBeSelected : _isActive) && 'is-selected'
               ])}
