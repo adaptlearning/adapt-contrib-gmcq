@@ -210,7 +210,7 @@
             "altTitle": {
               "type": "string",
               "title": "Alternative Feedback Title",
-              "description": "Will be read out by screen readers if no visual heading is included",
+              "description": "Text read out by screen readers if no visual title is included",
               "default": "",
               "_adapt": {
                 "translatable": true
