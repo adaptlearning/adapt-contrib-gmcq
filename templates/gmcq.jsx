@@ -26,7 +26,7 @@ export default function Gmcq(props) {
     onItemBlur
   } = props;
 
-  const screenSize = device.screenSize;
+  const hasColumnLayout = device.isScreenSizeMin('medium');
 
   return (
     <div className='component__inner gmcq__inner'>
@@ -40,7 +40,7 @@ export default function Gmcq(props) {
           !_isEnabled && 'is-disabled',
           _isInteractionComplete && 'is-complete is-submitted show-user-answer',
           _isCorrect && 'is-correct',
-          _columns && screenSize === 'large' && 'has-column-layout'
+          _columns && hasColumnLayout && 'has-column-layout'
         ])}
         role={_isRadio ? 'radiogroup' : 'group'}
         aria-labelledby={ariaQuestion ? null : (displayTitle || body || instruction) && `${_id}-header`}
@@ -55,7 +55,7 @@ export default function Gmcq(props) {
               (_shouldShowMarking && _shouldBeSelected) ? 'is-correct' : null,
               (_shouldShowMarking && !_shouldBeSelected) ? 'is-incorrect' : null
             ])}
-            style={(_columns && screenSize === 'large') ?
+            style={(_columns && hasColumnLayout) ?
               { width: `${100 / _columns}%` } :
               null}
             key={_index}
