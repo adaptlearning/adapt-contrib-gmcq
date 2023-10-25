@@ -73,6 +73,9 @@ guide the learner’s interaction with the component.
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.
 
+>**altText** (string): This will be read out by screen readers instead of reading `text`.
+Optional for providing alternative text, for example, to specify how a word should be pronounced.
+
 >**\_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **\_selectable** can be smaller, match or exceed the number of **\_items** where **\_shouldBeSelected** is set to `true`.
 
 >**\_isPartlyCorrect** (boolean): Determines whether the *item* when selected marks the question as partly correct. Value can be `true` or `false`. Default is `false`.
