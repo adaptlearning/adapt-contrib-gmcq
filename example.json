@@ -24,6 +24,7 @@
         "_items": [
             {
                 "text": "This is option 1.",
+                "altText": "",
                 "_shouldBeSelected": true,
                 "_isPartlyCorrect": false,
                 "_graphic": {
