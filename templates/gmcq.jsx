@@ -47,7 +47,7 @@ export default function Gmcq(props) {
         aria-label={ariaQuestion || null}
       >
 
-        {props._items.map(({ text, _index, _isActive, _shouldBeSelected, _graphic }, index) =>
+        {props._items.map(({ text, altText, _index, _isActive, _shouldBeSelected, _graphic }, index) =>
 
           <div
             className={classes([
@@ -69,8 +69,8 @@ export default function Gmcq(props) {
               disabled={!_isEnabled}
               checked={_isActive}
               aria-label={!_shouldShowMarking ?
-                `${a11y.normalize(text)} ${_graphic?.alt || ''}` :
-                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${a11y.normalize(text)} ${_graphic?.alt || ''}`}
+                `${altText || a11y.normalize(text)} ${_graphic?.alt || ''}` :
+                `${_shouldBeSelected ? ariaLabels.correct : ariaLabels.incorrect}, ${_isActive ? ariaLabels.selectedAnswer : ariaLabels.unselectedAnswer}. ${altText || a11y.normalize(text)} ${_graphic?.alt || ''}`}
               data-adapt-index={_index}
               onKeyPress={onKeyPress}
               onChange={onItemSelect}
