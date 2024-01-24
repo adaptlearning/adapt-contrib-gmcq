@@ -195,6 +195,12 @@
           "description": "Set the number of columns. If value is '0', component uses the default layout",
           "default": 0
         },
+        "_isRound": {
+          "type": "boolean",
+          "title": "Use circular item images",
+          "description": "If enabled, a 50% border radius will be applied to the item images, making them round.",
+          "default": false
+        },
         "_selectable": {
           "type": "number",
           "title": "Selectable items",
