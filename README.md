@@ -69,6 +69,8 @@ guide the learner’s interaction with the component.
 
 **\_columns** (number): Defines the number of columns wide the **\_items** are displayed in. If the value of **\_columns** is `2`, each **\_items** will be 50% wide. Similarly, if the value of **\_columns** is `3`, each **\_items** will be 33.3% wide. In mobile view, the width of each **\_items** is 50%.
 
+**\_isRound** (boolean): If set to `true`, the item images will inherit a 50% border radius. Ideal for use with images that are square that are required to be round. The default is `false`.
+
 **\_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **text**, **\_shouldBeSelected**, **feedback**, and **\_graphic**.
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.

@@ -21,6 +21,7 @@
         "_canShowMarking": true,
         "_recordInteraction": true,
         "_columns": 3,
+        "_isRound": false,
         "_items": [
             {
                 "text": "This is option 1.",

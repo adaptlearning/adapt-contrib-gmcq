@@ -16,6 +16,7 @@ export default function Gmcq(props) {
     _shouldShowMarking,
     _isRadio,
     _columns,
+    _isRound,
     displayTitle,
     body,
     instruction,
@@ -52,6 +53,7 @@ export default function Gmcq(props) {
           <div
             className={classes([
               `gmcq-item item-${index}`,
+              _isRound && 'is-round',
               (_shouldShowMarking && _shouldBeSelected) ? 'is-correct' : null,
               (_shouldShowMarking && !_shouldBeSelected) ? 'is-incorrect' : null
             ])}

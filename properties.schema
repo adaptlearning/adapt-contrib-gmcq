@@ -267,6 +267,15 @@
       "validators": ["number"],
       "help": "Set the number of columns. If value is '0', component uses the default layout."
     },
+    "_isRound": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Use circular item images",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "If enabled, a 50% border radius will be applied to the item images, making them round."
+    },
     "_selectable": {
       "type": "number",
       "required": true,
