@@ -8,11 +8,12 @@ describe('Graphic Multiple Choice Question', function () {
     const gmcqComponents = this.data.components.filter((component) => component._component === 'gmcq')
     gmcqComponents.forEach((gmcqComponent) => {
       cy.visit(`/#/preview/${gmcqComponent._id}`);
-      const bodyWithoutHtml = gmcqComponent.body.replace(/<[^>]*>/g, '');
+      cy.stripHtml(gmcqComponent.body)
+      const bodyWithoutHtml = this.text;
+      cy.testContainsOrNotExists('.gmcq__body', bodyWithoutHtml)
       
       cy.testQuestionButtons()
       cy.testContainsOrNotExists('.gmcq__title', gmcqComponent.displayTitle)
-      cy.testContainsOrNotExists('.gmcq__body', bodyWithoutHtml)
       cy.testContainsOrNotExists('.gmcq__instruction', gmcqComponent.instruction)
       cy.get('.gmcq-item').should('have.length', gmcqComponent._items.length)
       gmcqComponent._items.forEach((item) => {
