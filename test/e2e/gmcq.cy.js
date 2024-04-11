@@ -15,7 +15,7 @@ describe('Graphic Multiple Choice Question', function () {
 
       cy.get('.gmcq-item').should('have.length', gmcqComponent._items.length);
       gmcqComponent._items.forEach(item => {
-        cy.testContainsOrNotExists('.gmcq-item__text', item.text);
+        cy.testContainsOrNotExists('.gmcq-item__text', stripHtml(item.text));
       });
 
       // Make sure the current component is tested before moving to the next one
