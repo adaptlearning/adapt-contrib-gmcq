@@ -6,9 +6,9 @@ describe('Graphic Multiple Choice Question', function () {
 
   it('should display the gmcq component', function () {
     const gmcqComponents = this.data.components.filter(component => component._component === 'gmcq');
+    const stripHtml = cy.helpers.stripHtml;
     gmcqComponents.forEach(gmcqComponent => {
       cy.visit(`/#/preview/${gmcqComponent._id}`);
-      const stripHtml = cy.helpers.stripHtml;
       cy.testContainsOrNotExists('.gmcq__body', stripHtml(gmcqComponent.body));
       cy.testContainsOrNotExists('.gmcq__title', stripHtml(gmcqComponent.displayTitle));
       cy.testContainsOrNotExists('.gmcq__instruction', stripHtml(gmcqComponent.instruction));
