@@ -45,6 +45,10 @@
   &__widget.show-correctness .is-incorrect &-item__incorrect-icon {
     display: block;
   }
+
+  &:not(.can-show-marking) &-item__state-correctness {
+    display: none;
+  }
 }
 
 .gmcq-item {
