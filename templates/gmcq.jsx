@@ -14,6 +14,8 @@ export default function Gmcq(props) {
     _isCorrect,
     _isCorrectAnswerShown,
     _shouldShowMarking,
+    _canShowModelAnswer,
+    _canShowCorrectness,
     _isRadio,
     _columns,
     _isRound,
@@ -39,7 +41,10 @@ export default function Gmcq(props) {
           'component__widget',
           'gmcq__widget',
           !_isEnabled && 'is-disabled',
-          _isInteractionComplete && 'is-complete is-submitted show-user-answer',
+          _isInteractionComplete && 'is-complete is-submitted',
+          _isInteractionComplete && !_canShowCorrectness && !_isCorrectAnswerShown && 'show-user-answer',
+          _isInteractionComplete && _canShowModelAnswer && _isCorrectAnswerShown && 'show-correct-answer',
+          _isInteractionComplete && _canShowCorrectness && 'show-correctness',
           _isCorrect && 'is-correct',
           _columns && hasColumnLayout && 'has-column-layout'
         ])}
@@ -112,14 +117,6 @@ export default function Gmcq(props) {
                     <span className='icon'></span>
 
                   </span>
-
-                  <span className='gmcq-item__icon gmcq-item__correct-icon'>
-                    <span className='icon'></span>
-                  </span>
-
-                  <span className='gmcq-item__icon gmcq-item__incorrect-icon'>
-                    <span className='icon'></span>
-                  </span>
                 </span>
 
                 {text &&
@@ -128,6 +125,16 @@ export default function Gmcq(props) {
                   </span>
                 </span>
                 }
+
+                <span className='gmcq-item__state gmcq-item__state-correctness'>
+                  <span className='gmcq-item__icon gmcq-item__correct-icon'>
+                    <span className='icon'></span>
+                  </span>
+
+                  <span className='gmcq-item__icon gmcq-item__incorrect-icon'>
+                    <span className='icon'></span>
+                  </span>
+                </span>
 
               </span>
 
