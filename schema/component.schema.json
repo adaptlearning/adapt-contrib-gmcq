@@ -55,7 +55,6 @@
                 "properties": {
                   "large": {
                     "type": "string",
-                    "isObjectId": true,
                     "title": "Large",
                     "description": "Large image for this item - used on desktop",
                     "default": "",
@@ -66,7 +65,6 @@
                   },
                   "small": {
                     "type": "string",
-                    "isObjectId": true,
                     "title": "Small",
                     "description": "Small image for this item - used on mobiles",
                     "_backboneForms": {
