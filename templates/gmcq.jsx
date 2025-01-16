@@ -53,7 +53,7 @@ export default function Gmcq(props) {
         aria-label={ariaQuestion || null}
       >
 
-        {props._items.map(({ text, altText, _index, _isActive, _shouldBeSelected, _graphic }, index) =>
+        {props._items.map(({ text, altText, _index, _isActive, _isHighlighted, _shouldBeSelected, _graphic }, index) =>
 
           <div
             className={classes([
@@ -91,6 +91,7 @@ export default function Gmcq(props) {
                 'js-item-label',
                 'u-no-select',
                 !_isEnabled && 'is-disabled',
+                _isHighlighted && 'is-highlighted',
                 (_isCorrectAnswerShown ? _shouldBeSelected : _isActive) && 'is-selected'
               ])}
               aria-hidden={true}
