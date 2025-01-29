@@ -6,7 +6,7 @@ describe('GMCQ - v3.0.0 to v4.0.0', async () => {
   whereFromPlugin('GMCQ - from v3.0.0', { name: 'adapt-contrib-gmcq', version: '<4.0.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');

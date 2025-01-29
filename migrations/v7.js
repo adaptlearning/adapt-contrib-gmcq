@@ -6,7 +6,7 @@ describe('GMCQ - v7.2.1 to v7.3.0', async () => {
   whereFromPlugin('GMCQ - from v7.2.1', { name: 'adapt-contrib-gmcq', version: '<7.3.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - modify instruction attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -27,7 +27,7 @@ describe('GMCQ - v7.3.0 to v7.3.1', async () => {
   whereFromPlugin('GMCQ - from v7.3.0', { name: 'adapt-contrib-gmcq', version: '<7.3.1' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add ariaQuestion attribute to _items', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -48,7 +48,7 @@ describe('GMCQ - v7.3.10 to v7.4.0', async () => {
   whereFromPlugin('GMCQ - from v7.3.10', { name: 'adapt-contrib-gmcq', version: '<7.4.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add altText attribute to _items', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -75,7 +75,7 @@ describe('GMCQ - v7.4.0 to v7.5.0', async () => {
   whereFromPlugin('GMCQ - from v7.4.0', { name: 'adapt-contrib-gmcq', version: '<7.5.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add _isRound attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -96,7 +96,7 @@ describe('GMCQ - v7.5.2 to v7.6.0', async () => {
   whereFromPlugin('GMCQ - from v7.5.2', { name: 'adapt-contrib-gmcq', version: '<7.6.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add _canShowCorrectness attribute', async (content) => {
     GMCQs.forEach(GMCQ => {

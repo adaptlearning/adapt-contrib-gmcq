@@ -6,7 +6,7 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');
@@ -34,7 +34,7 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');
@@ -106,7 +106,7 @@ describe('GMCQ - v5.1.0 to v5.2.0', async () => {
   whereFromPlugin('GMCQ - from v5.1.0', { name: 'adapt-contrib-gmcq', version: '<5.2.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length > 0) return true;
+    if (GMCQs.length) return true;
   });
   mutateContent('GMCQ - add _hasItemScoring attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
