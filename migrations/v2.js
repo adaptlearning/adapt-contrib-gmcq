@@ -1,11 +1,12 @@
 import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import _ from 'lodash';
 
 describe('GMCQ - v1.1.5 to v2.0.0', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v1.1.5', { name: 'adapt-contrib-gmcq', version: '<2.0.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add _shouldDisplayAttempts attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -37,20 +38,16 @@ describe('GMCQ - v1.1.5 to v2.0.0', async () => {
     return true;
   });
   checkContent('GMCQ - check _graphic title attribute', async (content) => {
-    const isInvalid = GMCQs.some(GMCQ =>
-      GMCQ._items.some(item =>
-        Object.hasOwn(item._graphic, 'title')
-      )
-    );
+    const isInvalid = GMCQs.some(GMCQ => {
+      return GMCQ._items.find(item => !_.has(item, '_graphic.title'));
+    });
     if (isInvalid) throw new Error('GMCQ - _graphic title still found');
     return true;
   });
   checkContent('GMCQ - check _graphic.medium attribute', async (content) => {
-    const isInvalid = GMCQs.some(GMCQ =>
-      GMCQ._items.some(item =>
-        Object.hasOwn(item._graphic, 'medium')
-      )
-    );
+    const isInvalid = GMCQs.some(GMCQ => {
+      return GMCQ._items.find(item => !_.has(item, '_graphic.medium'));
+    });
     if (isInvalid) throw new Error('GMCQ - _graphic medium still found');
     return true;
   });
@@ -62,7 +59,7 @@ describe('GMCQ - v2.0.2 to v2.0.3', async () => {
   whereFromPlugin('GMCQ - from v2.0.2', { name: 'adapt-contrib-gmcq', version: '<2.0.3' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add _canShowModelAnswer attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -78,14 +75,14 @@ describe('GMCQ - v2.0.2 to v2.0.3', async () => {
   });
   checkContent('GMCQ - check _canShowModelAnswer attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
-      Object.hasOwn(GMCQ, '_canShowModelAnswer')
+      _.has(GMCQ, '_canShowModelAnswer')
     );
     if (!isValid) throw new Error('GMCQ - _canShowModelAnswer not found');
     return true;
   });
   checkContent('GMCQ - check _columns attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
-      Object.hasOwn(GMCQ, '_columns')
+      _.has(GMCQ, '_columns')
     );
     if (!isValid) throw new Error('GMCQ - _columns not found');
     return true;
@@ -98,7 +95,7 @@ describe('GMCQ - v2.0.4 to v2.0.5', async () => {
   whereFromPlugin('GMCQ - from v2.0.4', { name: 'adapt-contrib-gmcq', version: '<2.0.5' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add _graphic attribution attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -108,7 +105,7 @@ describe('GMCQ - v2.0.4 to v2.0.5', async () => {
   });
   checkContent('GMCQ - check _graphic attribution attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
-      Object.hasOwn(GMCQ, '_canShowMarking')
+      _.has(GMCQ, '_canShowMarking')
     );
     if (!isValid) throw new Error('GMCQ - _graphic attribution not found');
     return true;
@@ -121,7 +118,7 @@ describe('GMCQ - v2.0.5 to v2.1.0', async () => {
   whereFromPlugin('GMCQ - from v2.0.5', { name: 'adapt-contrib-gmcq', version: '<2.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add _graphic attribution attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -134,7 +131,7 @@ describe('GMCQ - v2.0.5 to v2.1.0', async () => {
   checkContent('GMCQ - check _graphic attribution attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
       GMCQ._items.every(item =>
-        Object.hasOwn(item._graphic, 'attribution')
+        _.has(item._graphic, 'attribution')
       )
     );
     if (!isValid) throw new Error('GMCQ - _graphic attribution not found');
@@ -149,18 +146,21 @@ describe('GMCQ - v2.1.0 to v2.1.1', async () => {
   whereFromPlugin('GMCQ - from v2.1.0', { name: 'adapt-contrib-gmcq', version: '<2.1.1' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');
-    if (course?._globals?._components?._gmcq) return true;
-
-    course._globals._components = course._globals._components ?? {};
-    courseGMCQGlobals = course._globals._components._gmcq ?? {};
+    if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
+    courseGMCQGlobals = course._globals._components._gmcq;
     return true;
   });
   mutateContent('GMCQ - modify global ariaRegion default', async (content) => {
     if (courseGMCQGlobals.ariaRegion === originalAriaRegion) courseGMCQGlobals.ariaRegion = 'This is a graphical multiple choice question. Once you have selected an option, select the submit button below.';
+    return true;
+  });
+  checkContent('GMCQ - check globals exist', async (content) => {
+    const isValid = _.has(course, '_globals._components._gmcq');
+    if (!isValid) throw new Error('GMCQ - globals do not exist');
     return true;
   });
   checkContent('GMCQ - check global ariaRegion default', async (content) => {

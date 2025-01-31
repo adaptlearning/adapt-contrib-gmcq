@@ -1,4 +1,5 @@
 import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import _ from 'lodash';
 
 describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   let course, courseGMCQGlobals, GMCQs;
@@ -6,17 +7,21 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');
-
-    course._globals._components = course._globals._components ?? {};
-    courseGMCQGlobals = course._globals._components._gmcq ?? {};
+    if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
+    courseGMCQGlobals = course._globals._components._gmcq;
     return true;
   });
   mutateContent('GMCQ - modify global ariaRegion default', async (content) => {
     if (courseGMCQGlobals.ariaRegion === originalAriaRegion) courseGMCQGlobals.ariaRegion = 'Multiple choice question';
+    return true;
+  });
+  checkContent('GMCQ - check globals exist', async (content) => {
+    const isValid = _.has(course, '_globals._components._gmcq');
+    if (!isValid) throw new Error('GMCQ - globals do not exist');
     return true;
   });
   checkContent('GMCQ - check global ariaRegion default', async (content) => {
@@ -34,14 +39,12 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
     course = content.find(({ _type }) => _type === 'course');
-    if (course?._globals?._components?._gmcq) return true;
-
-    course._globals._components = course._globals._components ?? {};
-    courseGMCQGlobals = course._globals._components._gmcq ?? {};
+    if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
+    courseGMCQGlobals = course._globals._components._gmcq;
     return true;
   });
   mutateContent('GMCQ - add default item alt value', async (content) => {
@@ -68,12 +71,15 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
     courseGMCQGlobals.ariaUserAnswers = 'The answers you chose were {{{userAnswer}}}';
     return true;
   });
+  checkContent('GMCQ - check globals exist', async (content) => {
+    const isValid = _.has(course, '_globals._components._gmcq');
+    if (!isValid) throw new Error('GMCQ - globals do not exist');
+    return true;
+  });
   checkContent('GMCQ - check default item alt value', async (content) => {
-    const isValid = GMCQs.every(GMCQ =>
-      GMCQ._items.every(item =>
-        item.alt !== originalAltText
-      )
-    );
+    const isValid = GMCQs.every(GMCQ => {
+      return GMCQ._items.every(item => _.has(item, '_graphic.alt'));
+    });
     if (!isValid) throw new Error('GMCQ - item default alt text not updated');
     return true;
   });
@@ -106,7 +112,7 @@ describe('GMCQ - v5.1.0 to v5.2.0', async () => {
   whereFromPlugin('GMCQ - from v5.1.0', { name: 'adapt-contrib-gmcq', version: '<5.2.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
-    if (GMCQs.length) return true;
+    return GMCQs.length;
   });
   mutateContent('GMCQ - add _hasItemScoring attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
@@ -136,20 +142,16 @@ describe('GMCQ - v5.1.0 to v5.2.0', async () => {
     return true;
   });
   checkContent('GMCQ - check item _isPartlyCorrect attribute', async(content) => {
-    const isValid = GMCQs.every(GMCQ =>
-      GMCQ._items.every(item =>
-        Object.hasOwn(item, '_isPartlyCorrect')
-      )
-    );
+    const isValid = GMCQs.every(GMCQ => {
+      return GMCQ._items.every(item => _.has(item, '_isPartlyCorrect'));
+    });
     if (!isValid) throw new Error('GMCQ - no item _isPartlyCorrect found');
     return true;
   });
   checkContent('GMCQ - check item _score attribute', async(content) => {
-    const isValid = GMCQs.every(GMCQ =>
-      GMCQ._items.every(item =>
-        Object.hasOwn(item, '_score')
-      )
-    );
+    const isValid = GMCQs.every(GMCQ => {
+      return GMCQ._items.every(item => _.has(item, '_score'));
+    });
     if (!isValid) throw new Error('GMCQ - no item _score found');
     return true;
   });
