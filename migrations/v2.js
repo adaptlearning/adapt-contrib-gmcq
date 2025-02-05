@@ -32,7 +32,7 @@ describe('GMCQ - v1.1.5 to v2.0.0', async () => {
   });
   checkContent('GMCQ - check _shouldDisplayAttempts attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
-      Object.hasOwn(GMCQ, '_shouldDisplayAttempts')
+      _.has(GMCQ, '_shouldDisplayAttempts')
     );
     if (!isValid) throw new Error('GMCQ - _shouldDisplayAttempts not found');
     return true;
@@ -52,6 +52,29 @@ describe('GMCQ - v1.1.5 to v2.0.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v2.0.0', { name: 'adapt-contrib-gmcq', version: '2.0.0', framework: '>=2.0.0' });
+});
+
+describe('GMCQ - v2.0.1 to v2.0.2', async () => {
+  let GMCQs;
+  whereFromPlugin('GMCQ - from v2.0.1', { name: 'adapt-contrib-gmcq', version: '<2.0.2' });
+  whereContent('GMCQ - where GMCQ', async (content) => {
+    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    return GMCQs.length;
+  });
+  mutateContent('GMCQ - add _recordInteraction attribute', async (content) => {
+    GMCQs.forEach(GMCQ => {
+      GMCQ._recordInteraction = true;
+    });
+    return true;
+  });
+  checkContent('GMCQ - check _recordInteraction attribute', async (content) => {
+    const isValid = GMCQs.every(GMCQ =>
+      _.has(GMCQ, '_recordInteraction')
+    );
+    if (!isValid) throw new Error('GMCQ - _recordInteraction not found');
+    return true;
+  });
+  updatePlugin('GMCQ - update to v2.0.2', { name: 'adapt-contrib-gmcq', version: '2.0.2', framework: '>=2.0.0' });
 });
 
 describe('GMCQ - v2.0.2 to v2.0.3', async () => {
