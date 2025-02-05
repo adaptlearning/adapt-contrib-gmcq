@@ -1,4 +1,5 @@
 import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import _ from 'lodash';
 
 describe('GMCQ - v7.2.1 to v7.3.0', async () => {
   let GMCQs;

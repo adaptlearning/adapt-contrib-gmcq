@@ -39,14 +39,14 @@ describe('GMCQ - v1.1.5 to v2.0.0', async () => {
   });
   checkContent('GMCQ - check _graphic title attribute', async (content) => {
     const isInvalid = GMCQs.some(GMCQ => {
-      return GMCQ._items.find(item => !_.has(item, '_graphic.title'));
+      return GMCQ._items.find(item => _.has(item, '_graphic.title'));
     });
     if (isInvalid) throw new Error('GMCQ - _graphic title still found');
     return true;
   });
   checkContent('GMCQ - check _graphic.medium attribute', async (content) => {
     const isInvalid = GMCQs.some(GMCQ => {
-      return GMCQ._items.find(item => !_.has(item, '_graphic.medium'));
+      return GMCQ._items.find(item => _.has(item, '_graphic.medium'));
     });
     if (isInvalid) throw new Error('GMCQ - _graphic medium still found');
     return true;
