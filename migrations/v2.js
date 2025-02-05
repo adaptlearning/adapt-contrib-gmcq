@@ -97,17 +97,17 @@ describe('GMCQ - v2.0.4 to v2.0.5', async () => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
     return GMCQs.length;
   });
-  mutateContent('GMCQ - add _graphic attribution attribute', async (content) => {
+  mutateContent('GMCQ - add _canShowMarking attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
       GMCQ._canShowMarking = true;
     });
     return true;
   });
-  checkContent('GMCQ - check _graphic attribution attribute', async (content) => {
+  checkContent('GMCQ - check _canShowMarking attribute', async (content) => {
     const isValid = GMCQs.every(GMCQ =>
       _.has(GMCQ, '_canShowMarking')
     );
-    if (!isValid) throw new Error('GMCQ - _graphic attribution not found');
+    if (!isValid) throw new Error('GMCQ - _canShowMarking not found');
     return true;
   });
   updatePlugin('GMCQ - update to v2.0.5', { name: 'adapt-contrib-gmcq', version: '2.0.5', framework: '>=2.0.0' });
