@@ -1,10 +1,10 @@
 import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
 import _ from 'lodash';
 
-describe('GMCQ - v5.0.2 to v5.1.0', async () => {
+describe('GMCQ - v5.0.1 to v5.0.2', async () => {
   let course, courseGMCQGlobals, GMCQs;
   const originalAriaRegion = 'Multiple choice question. Select your option and then submit.';
-  whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
+  whereFromPlugin('GMCQ - from v5.0.1', { name: 'adapt-contrib-gmcq', version: '<5.0.2' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
     return GMCQs.length;
@@ -30,12 +30,11 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
     return true;
   });
 
-  updatePlugin('GMCQ - update to v5.1.0', { name: 'adapt-contrib-gmcq', version: '5.1.0', framework: '>=5.0.0' });
+  updatePlugin('GMCQ - update to v5.0.2', { name: 'adapt-contrib-gmcq', version: '5.0.2', framework: '>=5.0.0' });
 });
 
 describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   let course, courseGMCQGlobals, GMCQs;
-  const originalAltText = 'Placeholder graphic';
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
@@ -45,14 +44,6 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
     course = content.find(({ _type }) => _type === 'course');
     if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
     courseGMCQGlobals = course._globals._components._gmcq;
-    return true;
-  });
-  mutateContent('GMCQ - add default item alt value', async (content) => {
-    GMCQs.forEach(GMCQ => {
-      GMCQ._items.forEach(item => {
-        if (item.alt === originalAltText) item.alt = '';
-      });
-    });
     return true;
   });
   mutateContent('GMCQ - add global ariaCorrectAnswer value', async (content) => {
@@ -74,13 +65,6 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   checkContent('GMCQ - check globals exist', async (content) => {
     const isValid = _.has(course, '_globals._components._gmcq');
     if (!isValid) throw new Error('GMCQ - globals do not exist');
-    return true;
-  });
-  checkContent('GMCQ - check default item alt value', async (content) => {
-    const isValid = GMCQs.every(GMCQ => {
-      return GMCQ._items.every(item => _.has(item, '_graphic.alt'));
-    });
-    if (!isValid) throw new Error('GMCQ - item default alt text not updated');
     return true;
   });
   checkContent('GMCQ - check global ariaCorrectAnswer attribute', async (content) => {

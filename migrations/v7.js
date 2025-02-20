@@ -30,7 +30,7 @@ describe('GMCQ - v7.3.0 to v7.3.1', async () => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
     return GMCQs.length;
   });
-  mutateContent('GMCQ - add ariaQuestion attribute to _items', async (content) => {
+  mutateContent('GMCQ - add ariaQuestion attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
       GMCQ.ariaQuestion = '';
     });

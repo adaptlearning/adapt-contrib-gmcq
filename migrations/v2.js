@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 describe('GMCQ - v1.1.5 to v2.0.0', async () => {
   let GMCQs;
-  whereFromPlugin('GMCQ - from v1.1.5', { name: 'adapt-contrib-gmcq', version: '<2.0.0' });
+  whereFromPlugin('GMCQ - from v1.1.5', { name: 'adapt-contrib-gmcq', version: '>=1.1.5 <2.0.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = content.filter(({ _component }) => _component === 'gmcq');
     return GMCQs.length;
@@ -133,7 +133,7 @@ describe('GMCQ - v2.0.4 to v2.0.5', async () => {
     if (!isValid) throw new Error('GMCQ - _canShowMarking not found');
     return true;
   });
-  updatePlugin('GMCQ - update to v2.0.5', { name: 'adapt-contrib-gmcq', version: '2.0.5', framework: '>=2.0.0' });
+  updatePlugin('GMCQ - update to v2.0.5', { name: 'adapt-contrib-gmcq', version: '2.0.5', framework: '>=2.0.11' });
 });
 
 describe('GMCQ - v2.0.5 to v2.1.0', async () => {
@@ -146,7 +146,7 @@ describe('GMCQ - v2.0.5 to v2.1.0', async () => {
   mutateContent('GMCQ - add _graphic attribution attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
       GMCQ._items.forEach(item => {
-        item._graphic.attribution = 'Copyright © 2015';
+        item._graphic.attribution = '';
       });
     });
     return true;
@@ -160,7 +160,7 @@ describe('GMCQ - v2.0.5 to v2.1.0', async () => {
     if (!isValid) throw new Error('GMCQ - _graphic attribution not found');
     return true;
   });
-  updatePlugin('GMCQ - update to v2.1.0', { name: 'adapt-contrib-gmcq', version: '2.1.0', framework: '>=2.0.0' });
+  updatePlugin('GMCQ - update to v2.1.0', { name: 'adapt-contrib-gmcq', version: '2.1.0', framework: '>=2.0.11' });
 });
 
 describe('GMCQ - v2.1.0 to v2.1.1', async () => {
@@ -192,5 +192,5 @@ describe('GMCQ - v2.1.0 to v2.1.1', async () => {
     return true;
   });
 
-  updatePlugin('GMCQ - update to v2.1.1', { name: 'adapt-contrib-gmcq', version: '2.1.1', framework: '>=2.0.0' });
+  updatePlugin('GMCQ - update to v2.1.1', { name: 'adapt-contrib-gmcq', version: '2.1.1', framework: '>=2.0.11' });
 });
