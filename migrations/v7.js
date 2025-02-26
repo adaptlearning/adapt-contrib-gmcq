@@ -1,4 +1,4 @@
-import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, getComponents, testStopWhere, testSuccessWhere } from 'adapt-migrations';
 import _ from 'lodash';
 
 describe('GMCQ - v7.2.1 to v7.3.0', async () => {
@@ -6,7 +6,7 @@ describe('GMCQ - v7.2.1 to v7.3.0', async () => {
   const originalInstruction = '';
   whereFromPlugin('GMCQ - from v7.2.1', { name: 'adapt-contrib-gmcq', version: '<7.3.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - modify instruction attribute', async (content) => {
@@ -21,13 +21,30 @@ describe('GMCQ - v7.2.1 to v7.3.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v7.3.0', { name: 'adapt-contrib-gmcq', version: '7.3.0', framework: '>=5.19.1' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.2.1' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.2.1' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v7.3.0 to v7.3.1', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v7.3.0', { name: 'adapt-contrib-gmcq', version: '<7.3.1' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add ariaQuestion attribute', async (content) => {
@@ -42,13 +59,30 @@ describe('GMCQ - v7.3.0 to v7.3.1', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v7.3.1', { name: 'adapt-contrib-gmcq', version: '7.3.1', framework: '>=5.19.1' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.1' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.0' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v7.3.10 to v7.4.0', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v7.3.10', { name: 'adapt-contrib-gmcq', version: '<7.4.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add altText attribute to _items', async (content) => {
@@ -67,13 +101,30 @@ describe('GMCQ - v7.3.10 to v7.4.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v7.4.0', { name: 'adapt-contrib-gmcq', version: '7.4.0', framework: '>=5.31.2' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.10' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _items: [{ title: 'item 1' }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ title: 'item 2' }] }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.4.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.10' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v7.4.0 to v7.5.0', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v7.4.0', { name: 'adapt-contrib-gmcq', version: '<7.5.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add _isRound attribute', async (content) => {
@@ -88,13 +139,30 @@ describe('GMCQ - v7.4.0 to v7.5.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v7.5.0', { name: 'adapt-contrib-gmcq', version: '7.5.0', framework: '>=5.31.2' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.4.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _id: 'c-105', _component: 'gmcq' }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.5.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.4.0' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v7.5.2 to v7.6.0', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v7.5.2', { name: 'adapt-contrib-gmcq', version: '<7.6.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add _canShowCorrectness attribute', async (content) => {
@@ -109,4 +177,21 @@ describe('GMCQ - v7.5.2 to v7.6.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v7.6.0', { name: 'adapt-contrib-gmcq', version: '7.6.0', framework: '>=5.31.2' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.5.2' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _id: 'c-105', _component: 'gmcq' }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.6.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.5.2' }],
+    content: [{ _component: 'other' }]
+  });
 });

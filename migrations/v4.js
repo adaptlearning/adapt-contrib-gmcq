@@ -1,4 +1,4 @@
-import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, testStopWhere, testSuccessWhere, getComponents, getCourse } from 'adapt-migrations';
 import _ from 'lodash';
 
 describe('GMCQ - v3.0.0 to v4.0.0', async () => {
@@ -6,18 +6,18 @@ describe('GMCQ - v3.0.0 to v4.0.0', async () => {
   const originalAriaRegion = 'This is a graphical multiple choice question. Once you have selected an option, select the submit button below.';
   whereFromPlugin('GMCQ - from v3.0.0', { name: 'adapt-contrib-gmcq', version: '<4.0.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
-    course = content.find(({ _type }) => _type === 'course');
-    if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
+    course = getCourse();
+    if (!_.has(course, '_globals._components._gmcq.ariaRegion')) _.set(course, '_globals._components._gmcq.ariaRegion', originalAriaRegion);
     courseGMCQGlobals = course._globals._components._gmcq;
     return true;
   });
   mutateContent('GMCQ - add feedback title attribute', async (content) => {
     GMCQs.forEach(GMCQ => {
-      GMCQ._feedback.title = '';
+      _.set(GMCQ, '_feedback.title', '');
     });
     return true;
   });
@@ -44,4 +44,40 @@ describe('GMCQ - v3.0.0 to v4.0.0', async () => {
   });
 
   updatePlugin('GMCQ - update to v4.0.0', { name: 'adapt-contrib-gmcq', version: '4.0.0', framework: '>=4.0.0' });
+
+  testSuccessWhere('gmcq components with empty course', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '3.0.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _feedback: {}, _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] },
+      { _type: 'course' }
+    ]
+  });
+
+  testSuccessWhere('gmcq components with original ariaRegion', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '3.0.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _feedback: {}, _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] },
+      { _type: 'course', _globals: { _components: { _gmcq: { ariaRegion: originalAriaRegion } } } }
+    ]
+  });
+
+  testSuccessWhere('gmcq components with custom ariaRegion', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '3.0.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _feedback: {}, _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] },
+      { _type: 'course', _globals: { _components: { _gmcq: { ariaRegion: 'custom ariaRegion' } } } }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '4.0.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '3.0.0' }],
+    content: [{ _component: 'other' }]
+  });
 });

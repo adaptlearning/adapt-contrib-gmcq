@@ -1,4 +1,4 @@
-import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin } from 'adapt-migrations';
+import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, getComponents, getCourse, testStopWhere, testSuccessWhere } from 'adapt-migrations';
 import _ from 'lodash';
 
 describe('GMCQ - v5.0.1 to v5.0.2', async () => {
@@ -6,12 +6,12 @@ describe('GMCQ - v5.0.1 to v5.0.2', async () => {
   const originalAriaRegion = 'Multiple choice question. Select your option and then submit.';
   whereFromPlugin('GMCQ - from v5.0.1', { name: 'adapt-contrib-gmcq', version: '<5.0.2' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
-    course = content.find(({ _type }) => _type === 'course');
-    if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
+    course = getCourse();
+    if (!_.has(course, '_globals._components._gmcq.ariaRegion')) _.set(course, '_globals._components._gmcq.ariaRegion', originalAriaRegion);
     courseGMCQGlobals = course._globals._components._gmcq;
     return true;
   });
@@ -31,17 +31,50 @@ describe('GMCQ - v5.0.1 to v5.0.2', async () => {
   });
 
   updatePlugin('GMCQ - update to v5.0.2', { name: 'adapt-contrib-gmcq', version: '5.0.2', framework: '>=5.0.0' });
+
+  testSuccessWhere('gmcq component with empty course', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.1' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _type: 'course' }
+    ]
+  });
+
+  testSuccessWhere('gmcq component with original ariaRegion', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.1' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _type: 'course', _globals: { _components: { _gmcq: { ariaRegion: originalAriaRegion } } } }
+    ]
+  });
+
+  testSuccessWhere('gmcq components with custom ariaRegion', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.1' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _type: 'course', _globals: { _components: { _gmcq: { ariaRegion: 'custom ariaRegion' } } } }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.2' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.1' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   let course, courseGMCQGlobals, GMCQs;
   whereFromPlugin('GMCQ - from v5.0.2', { name: 'adapt-contrib-gmcq', version: '<5.1.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add globals if missing', async (content) => {
-    course = content.find(({ _type }) => _type === 'course');
+    course = getCourse();
     if (!_.has(course, '_globals._components._gmcq')) _.set(course, '_globals._components._gmcq', {});
     courseGMCQGlobals = course._globals._components._gmcq;
     return true;
@@ -89,13 +122,38 @@ describe('GMCQ - v5.0.2 to v5.1.0', async () => {
   });
 
   updatePlugin('GMCQ - update to v5.1.0', { name: 'adapt-contrib-gmcq', version: '5.1.0', framework: '>=5.0.0' });
+
+  testSuccessWhere('gmcq component with empty course', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.2' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _type: 'course' }
+    ]
+  });
+
+  testSuccessWhere('gmcq component with globals', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.2' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq' },
+      { _type: 'course', _globals: { _components: { _gmcq: {} } } }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.1.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.0.2' }],
+    content: [{ _component: 'other' }]
+  });
 });
 
 describe('GMCQ - v5.1.0 to v5.2.0', async () => {
   let GMCQs;
   whereFromPlugin('GMCQ - from v5.1.0', { name: 'adapt-contrib-gmcq', version: '<5.2.0' });
   whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = content.filter(({ _component }) => _component === 'gmcq');
+    GMCQs = getComponents('gmcq');
     return GMCQs.length;
   });
   mutateContent('GMCQ - add _hasItemScoring attribute', async (content) => {
@@ -140,4 +198,21 @@ describe('GMCQ - v5.1.0 to v5.2.0', async () => {
     return true;
   });
   updatePlugin('GMCQ - update to v5.2.0', { name: 'adapt-contrib-gmcq', version: '5.2.0', framework: '>=5.0.0' });
+
+  testSuccessWhere('gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.1.0' }],
+    content: [
+      { _id: 'c-100', _component: 'gmcq', _items: [{ title: 'item 1' }] },
+      { _id: 'c-105', _component: 'gmcq', _items: [{ title: 'item 2' }] }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.2.0' }]
+  });
+
+  testStopWhere('no gmcq components', {
+    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.1.0' }],
+    content: [{ _component: 'other' }]
+  });
 });
