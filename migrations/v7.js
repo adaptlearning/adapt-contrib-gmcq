@@ -22,11 +22,12 @@ describe('GMCQ - v7.2.1 to v7.3.0', async () => {
   });
   updatePlugin('GMCQ - update to v7.3.0', { name: 'adapt-contrib-gmcq', version: '7.3.0', framework: '>=5.19.1' });
 
-  testSuccessWhere('correct version gmcq components', {
+  testSuccessWhere('gmcq components with/custom/no instruction', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.2.1' }],
     content: [
-      { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { } }] },
-      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: { } }] }
+      { _id: 'c-100', _component: 'gmcq', instruction: originalInstruction, _items: [{ _graphic: { } }] },
+      { _id: 'c-105', _component: 'gmcq', instruction: 'custom instruction', _items: [{ _graphic: { } }] },
+      { _id: 'c-110', _component: 'gmcq', _items: [{ _graphic: { } }] }
     ]
   });
 
