@@ -22,7 +22,7 @@ describe('GMCQ - v7.2.1 to v7.3.0', async () => {
   });
   updatePlugin('GMCQ - update to v7.3.0', { name: 'adapt-contrib-gmcq', version: '7.3.0', framework: '>=5.19.1' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.2.1' }],
     content: [
       { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { } }] },
@@ -60,7 +60,7 @@ describe('GMCQ - v7.3.0 to v7.3.1', async () => {
   });
   updatePlugin('GMCQ - update to v7.3.1', { name: 'adapt-contrib-gmcq', version: '7.3.1', framework: '>=5.19.1' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.0' }],
     content: [
       { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { } }] },
@@ -102,7 +102,7 @@ describe('GMCQ - v7.3.10 to v7.4.0', async () => {
   });
   updatePlugin('GMCQ - update to v7.4.0', { name: 'adapt-contrib-gmcq', version: '7.4.0', framework: '>=5.31.2' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.3.10' }],
     content: [
       { _id: 'c-100', _component: 'gmcq', _items: [{ title: 'item 1' }] },
@@ -140,7 +140,7 @@ describe('GMCQ - v7.4.0 to v7.5.0', async () => {
   });
   updatePlugin('GMCQ - update to v7.5.0', { name: 'adapt-contrib-gmcq', version: '7.5.0', framework: '>=5.31.2' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.4.0' }],
     content: [
       { _id: 'c-100', _component: 'gmcq' },
@@ -178,7 +178,7 @@ describe('GMCQ - v7.5.2 to v7.6.0', async () => {
   });
   updatePlugin('GMCQ - update to v7.6.0', { name: 'adapt-contrib-gmcq', version: '7.6.0', framework: '>=5.31.2' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '7.5.2' }],
     content: [
       { _id: 'c-100', _component: 'gmcq' },

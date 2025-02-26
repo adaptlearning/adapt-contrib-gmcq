@@ -199,7 +199,7 @@ describe('GMCQ - v5.1.0 to v5.2.0', async () => {
   });
   updatePlugin('GMCQ - update to v5.2.0', { name: 'adapt-contrib-gmcq', version: '5.2.0', framework: '>=5.0.0' });
 
-  testSuccessWhere('gmcq components', {
+  testSuccessWhere('correct version gmcq components', {
     fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '5.1.0' }],
     content: [
       { _id: 'c-100', _component: 'gmcq', _items: [{ title: 'item 1' }] },
