@@ -1,79 +1,9 @@
 import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, testStopWhere, testSuccessWhere, getComponents, getCourse } from 'adapt-migrations';
 import _ from 'lodash';
 
-describe('GMCQ - v1.1.5 to v2.0.0', async () => {
-  let GMCQs;
-  whereFromPlugin('GMCQ - from v1.1.5', { name: 'adapt-contrib-gmcq', version: '>=1.1.5 <2.0.0' });
-  whereContent('GMCQ - where GMCQ', async (content) => {
-    GMCQs = getComponents('gmcq');
-    return GMCQs.length;
-  });
-  mutateContent('GMCQ - add _shouldDisplayAttempts attribute', async (content) => {
-    GMCQs.forEach(GMCQ => {
-      GMCQ._shouldDisplayAttempts = false;
-    });
-    return true;
-  });
-  mutateContent('GMCQ - delete _graphic.title attribute', async (content) => {
-    GMCQs.forEach(GMCQ => {
-      GMCQ._items.forEach(item => {
-        delete item._graphic.title;
-      });
-    });
-    return true;
-  });
-  mutateContent('GMCQ - delete _graphic.medium attribute', async (content) => {
-    GMCQs.forEach(GMCQ => {
-      GMCQ._items.forEach(item => {
-        delete item._graphic.medium;
-      });
-    });
-    return true;
-  });
-  checkContent('GMCQ - check _shouldDisplayAttempts attribute', async (content) => {
-    const isValid = GMCQs.every(GMCQ =>
-      _.has(GMCQ, '_shouldDisplayAttempts')
-    );
-    if (!isValid) throw new Error('GMCQ - _shouldDisplayAttempts not found');
-    return true;
-  });
-  checkContent('GMCQ - check _graphic title attribute', async (content) => {
-    const isInvalid = GMCQs.some(GMCQ => {
-      return GMCQ._items.find(item => _.has(item, '_graphic.title'));
-    });
-    if (isInvalid) throw new Error('GMCQ - _graphic title still found');
-    return true;
-  });
-  checkContent('GMCQ - check _graphic.medium attribute', async (content) => {
-    const isInvalid = GMCQs.some(GMCQ => {
-      return GMCQ._items.find(item => _.has(item, '_graphic.medium'));
-    });
-    if (isInvalid) throw new Error('GMCQ - _graphic medium still found');
-    return true;
-  });
-  updatePlugin('GMCQ - update to v2.0.0', { name: 'adapt-contrib-gmcq', version: '2.0.0', framework: '>=2.0.0' });
-
-  testSuccessWhere('gmcq components with/without graphic.title graphic.medium', {
-    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '1.1.5' }],
-    content: [
-      { _id: 'c-100', _component: 'gmcq', _items: [{ _graphic: { title: 'item 1', medium: './medium.png' } }] },
-      { _id: 'c-105', _component: 'gmcq', _items: [{ _graphic: {} }] }
-    ]
-  });
-
-  testStopWhere('incorrect version', {
-    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '2.0.0' }]
-  });
-
-  testStopWhere('no gmcq components', {
-    fromPlugins: [{ name: 'adapt-contrib-gmcq', version: '1.1.5' }],
-    content: [{ _component: 'other' }]
-  });
-});
-
 describe('GMCQ - v2.0.1 to v2.0.2', async () => {
   let GMCQs;
-  whereFromPlugin('GMCQ - from v2.0.1', { name: 'adapt-contrib-gmcq', version: '<2.0.2' });
+  whereFromPlugin('GMCQ - from v2.0.1', { name: 'adapt-contrib-gmcq', version: '>=2.0.0 <2.0.2' });
   whereContent('GMCQ - where GMCQ', async (content) => {
     GMCQs = getComponents('gmcq');
     return GMCQs.length;
